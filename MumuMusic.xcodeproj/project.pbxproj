@@ -9,9 +9,7 @@
 /* Begin PBXBuildFile section */
 		830ECEF920C5A129001B2036 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 830ECEF820C5A129001B2036 /* AppDelegate.swift */; };
 		830ECEFB20C5A129001B2036 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 830ECEFA20C5A129001B2036 /* ViewController.swift */; };
-		830ECEFE20C5A129001B2036 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 830ECEFC20C5A129001B2036 /* Main.storyboard */; };
 		830ECF0020C5A129001B2036 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 830ECEFF20C5A129001B2036 /* Assets.xcassets */; };
-		830ECF0320C5A129001B2036 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 830ECF0120C5A129001B2036 /* LaunchScreen.storyboard */; };
 		AA4CCA17BB0EEADE4C2EB3A6 /* Pods_MumuMusic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CC9D454CCB552B1B7E03615 /* Pods_MumuMusic.framework */; };
 /* End PBXBuildFile section */
 
@@ -22,9 +20,7 @@
 		830ECEF520C5A129001B2036 /* MumuMusic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MumuMusic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		830ECEF820C5A129001B2036 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		830ECEFA20C5A129001B2036 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		830ECEFD20C5A129001B2036 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		830ECEFF20C5A129001B2036 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		830ECF0220C5A129001B2036 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		830ECF0420C5A129001B2036 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -71,9 +67,7 @@
 			children = (
 				830ECEF820C5A129001B2036 /* AppDelegate.swift */,
 				830ECEFA20C5A129001B2036 /* ViewController.swift */,
-				830ECEFC20C5A129001B2036 /* Main.storyboard */,
 				830ECEFF20C5A129001B2036 /* Assets.xcassets */,
-				830ECF0120C5A129001B2036 /* LaunchScreen.storyboard */,
 				830ECF0420C5A129001B2036 /* Info.plist */,
 			);
 			path = MumuMusic;
@@ -148,9 +142,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				830ECF0320C5A129001B2036 /* LaunchScreen.storyboard in Resources */,
 				830ECF0020C5A129001B2036 /* Assets.xcassets in Resources */,
-				830ECEFE20C5A129001B2036 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -206,25 +198,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		830ECEFC20C5A129001B2036 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				830ECEFD20C5A129001B2036 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		830ECF0120C5A129001B2036 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				830ECF0220C5A129001B2036 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		830ECF0520C5A129001B2036 /* Debug */ = {
