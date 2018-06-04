@@ -12,9 +12,13 @@
 		830ECEFE20C5A129001B2036 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 830ECEFC20C5A129001B2036 /* Main.storyboard */; };
 		830ECF0020C5A129001B2036 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 830ECEFF20C5A129001B2036 /* Assets.xcassets */; };
 		830ECF0320C5A129001B2036 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 830ECF0120C5A129001B2036 /* LaunchScreen.storyboard */; };
+		AA4CCA17BB0EEADE4C2EB3A6 /* Pods_MumuMusic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CC9D454CCB552B1B7E03615 /* Pods_MumuMusic.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3E7814F2A45D582C86A75E3E /* Pods-MumuMusic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MumuMusic.release.xcconfig"; path = "Pods/Target Support Files/Pods-MumuMusic/Pods-MumuMusic.release.xcconfig"; sourceTree = "<group>"; };
+		41B5DE08C36783717A1F9B15 /* Pods-MumuMusic.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MumuMusic.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MumuMusic/Pods-MumuMusic.debug.xcconfig"; sourceTree = "<group>"; };
+		6CC9D454CCB552B1B7E03615 /* Pods_MumuMusic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MumuMusic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		830ECEF520C5A129001B2036 /* MumuMusic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MumuMusic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		830ECEF820C5A129001B2036 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		830ECEFA20C5A129001B2036 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -29,17 +33,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA4CCA17BB0EEADE4C2EB3A6 /* Pods_MumuMusic.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6AC94346D4F127D63232BE75 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6CC9D454CCB552B1B7E03615 /* Pods_MumuMusic.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		830ECEEC20C5A129001B2036 = {
 			isa = PBXGroup;
 			children = (
 				830ECEF720C5A129001B2036 /* MumuMusic */,
 				830ECEF620C5A129001B2036 /* Products */,
+				D06984C126C2C7F59051FF32 /* Pods */,
+				6AC94346D4F127D63232BE75 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +79,15 @@
 			path = MumuMusic;
 			sourceTree = "<group>";
 		};
+		D06984C126C2C7F59051FF32 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				41B5DE08C36783717A1F9B15 /* Pods-MumuMusic.debug.xcconfig */,
+				3E7814F2A45D582C86A75E3E /* Pods-MumuMusic.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -71,9 +95,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 830ECF0720C5A129001B2036 /* Build configuration list for PBXNativeTarget "MumuMusic" */;
 			buildPhases = (
+				04AB3232770E1A52860506FB /* [CP] Check Pods Manifest.lock */,
 				830ECEF120C5A129001B2036 /* Sources */,
 				830ECEF220C5A129001B2036 /* Frameworks */,
 				830ECEF320C5A129001B2036 /* Resources */,
+				A0926044134A2CB2229BFB70 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -129,6 +155,45 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		04AB3232770E1A52860506FB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MumuMusic-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A0926044134A2CB2229BFB70 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-MumuMusic/Pods-MumuMusic-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MumuMusic/Pods-MumuMusic-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		830ECEF120C5A129001B2036 /* Sources */ = {
@@ -278,6 +343,7 @@
 		};
 		830ECF0820C5A129001B2036 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 41B5DE08C36783717A1F9B15 /* Pods-MumuMusic.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -296,6 +362,7 @@
 		};
 		830ECF0920C5A129001B2036 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3E7814F2A45D582C86A75E3E /* Pods-MumuMusic.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
