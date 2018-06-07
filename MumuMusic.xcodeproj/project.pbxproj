@@ -10,6 +10,9 @@
 		830ECEF920C5A129001B2036 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 830ECEF820C5A129001B2036 /* AppDelegate.swift */; };
 		830ECEFB20C5A129001B2036 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 830ECEFA20C5A129001B2036 /* ViewController.swift */; };
 		830ECF0020C5A129001B2036 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 830ECEFF20C5A129001B2036 /* Assets.xcassets */; };
+		832D654220C7B90700552EA5 /* MMMLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832D654120C7B90700552EA5 /* MMMLoginViewController.swift */; };
+		832D654420C7B93A00552EA5 /* MMMMusicPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832D654320C7B93A00552EA5 /* MMMMusicPlayer.swift */; };
+		832D654A20C92E2100552EA5 /* Ailee - 像初雪一样靠近你.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 832D654920C92E2000552EA5 /* Ailee - 像初雪一样靠近你.mp3 */; };
 		AA4CCA17BB0EEADE4C2EB3A6 /* Pods_MumuMusic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CC9D454CCB552B1B7E03615 /* Pods_MumuMusic.framework */; };
 /* End PBXBuildFile section */
 
@@ -22,6 +25,9 @@
 		830ECEFA20C5A129001B2036 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		830ECEFF20C5A129001B2036 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		830ECF0420C5A129001B2036 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		832D654120C7B90700552EA5 /* MMMLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMMLoginViewController.swift; sourceTree = "<group>"; };
+		832D654320C7B93A00552EA5 /* MMMMusicPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMMMusicPlayer.swift; sourceTree = "<group>"; };
+		832D654920C92E2000552EA5 /* Ailee - 像初雪一样靠近你.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Ailee - 像初雪一样靠近你.mp3"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,12 +71,23 @@
 		830ECEF720C5A129001B2036 /* MumuMusic */ = {
 			isa = PBXGroup;
 			children = (
+				832D654820C92E2000552EA5 /* Music */,
 				830ECEF820C5A129001B2036 /* AppDelegate.swift */,
 				830ECEFA20C5A129001B2036 /* ViewController.swift */,
 				830ECEFF20C5A129001B2036 /* Assets.xcassets */,
 				830ECF0420C5A129001B2036 /* Info.plist */,
+				832D654120C7B90700552EA5 /* MMMLoginViewController.swift */,
+				832D654320C7B93A00552EA5 /* MMMMusicPlayer.swift */,
 			);
 			path = MumuMusic;
+			sourceTree = "<group>";
+		};
+		832D654820C92E2000552EA5 /* Music */ = {
+			isa = PBXGroup;
+			children = (
+				832D654920C92E2000552EA5 /* Ailee - 像初雪一样靠近你.mp3 */,
+			);
+			path = Music;
 			sourceTree = "<group>";
 		};
 		D06984C126C2C7F59051FF32 /* Pods */ = {
@@ -110,6 +127,7 @@
 		830ECEED20C5A129001B2036 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = MMM;
 				LastSwiftUpdateCheck = 0940;
 				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = "卞方庆";
@@ -143,6 +161,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				830ECF0020C5A129001B2036 /* Assets.xcassets in Resources */,
+				832D654A20C92E2100552EA5 /* Ailee - 像初雪一样靠近你.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -192,7 +211,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				832D654420C7B93A00552EA5 /* MMMMusicPlayer.swift in Sources */,
 				830ECEFB20C5A129001B2036 /* ViewController.swift in Sources */,
+				832D654220C7B90700552EA5 /* MMMLoginViewController.swift in Sources */,
 				830ECEF920C5A129001B2036 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
