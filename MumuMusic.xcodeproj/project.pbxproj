@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		830ECEF920C5A129001B2036 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 830ECEF820C5A129001B2036 /* AppDelegate.swift */; };
-		830ECEFB20C5A129001B2036 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 830ECEFA20C5A129001B2036 /* ViewController.swift */; };
 		830ECF0020C5A129001B2036 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 830ECEFF20C5A129001B2036 /* Assets.xcassets */; };
 		832D654220C7B90700552EA5 /* MMMLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832D654120C7B90700552EA5 /* MMMLoginViewController.swift */; };
 		832D654A20C92E2100552EA5 /* Ailee - 像初雪一样靠近你.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 832D654920C92E2000552EA5 /* Ailee - 像初雪一样靠近你.mp3 */; };
@@ -18,6 +17,7 @@
 		8334864820C976400031A90B /* MMMPlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8334864720C976400031A90B /* MMMPlayViewController.swift */; };
 		8334864E20C976DA0031A90B /* MMMHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8334864D20C976DA0031A90B /* MMMHomeViewController.swift */; };
 		8334865020C976FB0031A90B /* MMMSegmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8334864F20C976FB0031A90B /* MMMSegmentView.swift */; };
+		8334865220C997690031A90B /* MMMBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8334865120C997690031A90B /* MMMBaseViewController.swift */; };
 		AA4CCA17BB0EEADE4C2EB3A6 /* Pods_MumuMusic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CC9D454CCB552B1B7E03615 /* Pods_MumuMusic.framework */; };
 /* End PBXBuildFile section */
 
@@ -27,7 +27,6 @@
 		6CC9D454CCB552B1B7E03615 /* Pods_MumuMusic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MumuMusic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		830ECEF520C5A129001B2036 /* MumuMusic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MumuMusic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		830ECEF820C5A129001B2036 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		830ECEFA20C5A129001B2036 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		830ECEFF20C5A129001B2036 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		830ECF0420C5A129001B2036 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		832D654120C7B90700552EA5 /* MMMLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMMLoginViewController.swift; sourceTree = "<group>"; };
@@ -38,6 +37,7 @@
 		8334864720C976400031A90B /* MMMPlayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMMPlayViewController.swift; sourceTree = "<group>"; };
 		8334864D20C976DA0031A90B /* MMMHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMMHomeViewController.swift; sourceTree = "<group>"; };
 		8334864F20C976FB0031A90B /* MMMSegmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMMSegmentView.swift; sourceTree = "<group>"; };
+		8334865120C997690031A90B /* MMMBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMMBaseViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,7 +88,6 @@
 				8334863E20C974FB0031A90B /* Play */,
 				832D654820C92E2000552EA5 /* Music */,
 				830ECEF820C5A129001B2036 /* AppDelegate.swift */,
-				830ECEFA20C5A129001B2036 /* ViewController.swift */,
 				830ECEFF20C5A129001B2036 /* Assets.xcassets */,
 				830ECF0420C5A129001B2036 /* Info.plist */,
 				832D654120C7B90700552EA5 /* MMMLoginViewController.swift */,
@@ -143,6 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				8334864F20C976FB0031A90B /* MMMSegmentView.swift */,
+				8334865120C997690031A90B /* MMMBaseViewController.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -290,8 +290,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				830ECEFB20C5A129001B2036 /* ViewController.swift in Sources */,
 				8334865020C976FB0031A90B /* MMMSegmentView.swift in Sources */,
+				8334865220C997690031A90B /* MMMBaseViewController.swift in Sources */,
 				832D654220C7B90700552EA5 /* MMMLoginViewController.swift in Sources */,
 				8334864820C976400031A90B /* MMMPlayViewController.swift in Sources */,
 				8334864620C9762C0031A90B /* MMMPersonalViewController.swift in Sources */,
