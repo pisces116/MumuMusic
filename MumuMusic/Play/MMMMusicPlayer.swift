@@ -10,17 +10,17 @@ import UIKit
 import AVFoundation
 
 class MMMMusicPlayer: NSObject {
+    
+    var musicName :String?
     static let sharedInstance = MMMMusicPlayer()
     private override init() {}
-    
-    private var avPlayer :AVAudioPlayer!
+    private var avPlayer :AVAudioPlayer?
     
     
     func play(name: String) {
-        
         guard let url = Bundle.main.url(forResource: name, withExtension: nil) else {return}
-        if url == avPlayer.url {
-            avPlayer.play()
+        if url == avPlayer?.url {
+            avPlayer?.play()
             return
         }
         do {
@@ -29,13 +29,13 @@ class MMMMusicPlayer: NSObject {
             print(error)
             return
         }
-        avPlayer.prepareToPlay()
-        avPlayer.play()
+        avPlayer?.prepareToPlay()
+        avPlayer?.play()
     }
     func pause() {
-        
+        avPlayer?.pause()
     }
     func stop() {
-        
+        avPlayer?.stop()
     }
 }
