@@ -11,6 +11,7 @@
 		830ECF0020C5A129001B2036 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 830ECEFF20C5A129001B2036 /* Assets.xcassets */; };
 		832D654220C7B90700552EA5 /* MMMLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832D654120C7B90700552EA5 /* MMMLoginViewController.swift */; };
 		832D654A20C92E2100552EA5 /* Ailee - 像初雪一样靠近你.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 832D654920C92E2000552EA5 /* Ailee - 像初雪一样靠近你.mp3 */; };
+		832D654C20CA841600552EA5 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832D654B20CA841600552EA5 /* Constant.swift */; };
 		8334864020C974FB0031A90B /* MMMMusicPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8334863F20C974FB0031A90B /* MMMMusicPlayer.swift */; };
 		8334864420C976200031A90B /* MMMMineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8334864320C976200031A90B /* MMMMineViewController.swift */; };
 		8334864620C9762C0031A90B /* MMMPersonalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8334864520C9762C0031A90B /* MMMPersonalViewController.swift */; };
@@ -31,6 +32,7 @@
 		830ECF0420C5A129001B2036 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		832D654120C7B90700552EA5 /* MMMLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMMLoginViewController.swift; sourceTree = "<group>"; };
 		832D654920C92E2000552EA5 /* Ailee - 像初雪一样靠近你.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Ailee - 像初雪一样靠近你.mp3"; sourceTree = "<group>"; };
+		832D654B20CA841600552EA5 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		8334863F20C974FB0031A90B /* MMMMusicPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMMMusicPlayer.swift; sourceTree = "<group>"; };
 		8334864320C976200031A90B /* MMMMineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMMMineViewController.swift; sourceTree = "<group>"; };
 		8334864520C9762C0031A90B /* MMMPersonalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMMPersonalViewController.swift; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 			children = (
 				8334864F20C976FB0031A90B /* MMMSegmentView.swift */,
 				8334865120C997690031A90B /* MMMBaseViewController.swift */,
+				832D654B20CA841600552EA5 /* Constant.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -297,6 +300,7 @@
 				8334864620C9762C0031A90B /* MMMPersonalViewController.swift in Sources */,
 				830ECEF920C5A129001B2036 /* AppDelegate.swift in Sources */,
 				8334864E20C976DA0031A90B /* MMMHomeViewController.swift in Sources */,
+				832D654C20CA841600552EA5 /* Constant.swift in Sources */,
 				8334864420C976200031A90B /* MMMMineViewController.swift in Sources */,
 				8334864020C974FB0031A90B /* MMMMusicPlayer.swift in Sources */,
 			);

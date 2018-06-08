@@ -9,12 +9,53 @@
 import UIKit
 
 class MMMHomeViewController: MMMBaseViewController {
+    fileprivate var segmentView: MMMSegmentView!
+    fileprivate var searchButton: UIButton!
+    fileprivate var listButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.showNavi = false
+        setupUI()
+    }
+    
+    func setupUI() {
         view.backgroundColor = UIColor.white
-        // Do any additional setup after loading the view.
+        self.listButton = UIButton(type: .custom)
+        self.view.addSubview(self.listButton)
+        self.listButton.setTitle("List", for: .normal)
+        self.listButton.setTitleColor(UIColor.black, for: .normal)
+        
+        self.searchButton = UIButton(type: .custom)
+        self.view.addSubview(self.searchButton!)
+        self.searchButton.setTitle("Search", for: .normal)
+        self.searchButton.setTitleColor(UIColor.black, for: .normal)
+        
+        self.segmentView = MMMSegmentView(frame: CGRect.zero, titles: ["HOME","ME"])
+        self.segmentView.setSelectTitle(index: 0)
+        self.segmentView.titleClickClosure = { (index) in
+            print(index)
+        }
+        self.view.addSubview(self.segmentView)
+        
+        self.listButton.snp.makeConstraints { (make) in
+            make.leading.equalToSuperview()
+            make.top.equalToSuperview().offset(kTopMargin)
+            make.height.width.equalTo(48)
+        }
+        
+        self.searchButton.snp.makeConstraints { (make) in
+            make.trailing.equalToSuperview()
+            make.top.equalToSuperview().offset(kTopMargin)
+            make.height.width.equalTo(48)
+        }
+        
+        self.segmentView.snp.makeConstraints { (make) in
+            make.top.equalToSuperview().offset(kTopMargin)
+            make.height.equalTo(48)
+            make.leading.equalToSuperview().offset(48);
+            make.trailing.equalToSuperview().offset(-48)
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -23,14 +64,5 @@ class MMMHomeViewController: MMMBaseViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
