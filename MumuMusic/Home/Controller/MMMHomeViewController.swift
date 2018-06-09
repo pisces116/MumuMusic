@@ -19,12 +19,13 @@ class MMMHomeViewController: MMMBaseViewController {
         setupUI()
     }
     
-    func setupUI() {
+    private func setupUI() {
         view.backgroundColor = UIColor.white
         self.listButton = UIButton(type: .custom)
         self.view.addSubview(self.listButton)
         self.listButton.setTitle("List", for: .normal)
         self.listButton.setTitleColor(UIColor.black, for: .normal)
+        self.listButton.addTarget(self, action: #selector(listButtonClick(sender:)), for: .touchUpInside)
         
         self.searchButton = UIButton(type: .custom)
         self.view.addSubview(self.searchButton!)
@@ -34,7 +35,7 @@ class MMMHomeViewController: MMMBaseViewController {
         self.segmentView = MMMSegmentView(frame: CGRect.zero, titles: ["HOME","ME"])
         self.segmentView.setSelectTitle(index: 0)
         self.segmentView.titleClickClosure = { (index) in
-            print(index)
+            
         }
         self.view.addSubview(self.segmentView)
         
@@ -56,6 +57,10 @@ class MMMHomeViewController: MMMBaseViewController {
             make.leading.equalToSuperview().offset(48);
             make.trailing.equalToSuperview().offset(-48)
         }
+    }
+    
+    @objc func listButtonClick(sender: UIButton) {
+        self.navigationController?.pushViewController(MMMListViewController.init(), animated: true)
     }
 
     override func didReceiveMemoryWarning() {

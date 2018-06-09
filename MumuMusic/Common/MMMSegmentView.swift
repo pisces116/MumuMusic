@@ -79,6 +79,9 @@ class MMMSegmentView: UIView {
     }
     //MARK: - Action
     @objc private func titleButtonClick(sender: UIButton)  {
+        if sender.tag == self.selectIndex {
+            return
+        }
         updateSelectTitle(index: sender.tag)
         if self.titleClickClosure != nil {
             self.titleClickClosure!(sender.tag)
