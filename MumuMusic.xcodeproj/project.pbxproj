@@ -10,8 +10,10 @@
 		830ECEF920C5A129001B2036 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 830ECEF820C5A129001B2036 /* AppDelegate.swift */; };
 		830ECF0020C5A129001B2036 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 830ECEFF20C5A129001B2036 /* Assets.xcassets */; };
 		832D654220C7B90700552EA5 /* MMMLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832D654120C7B90700552EA5 /* MMMLoginViewController.swift */; };
-		832D654A20C92E2100552EA5 /* Ailee - 像初雪一样靠近你.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 832D654920C92E2000552EA5 /* Ailee - 像初雪一样靠近你.mp3 */; };
 		832D654C20CA841600552EA5 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832D654B20CA841600552EA5 /* Constant.swift */; };
+		832D654E20CE15B600552EA5 /* MMMMusicModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832D654D20CE15B600552EA5 /* MMMMusicModel.swift */; };
+		832D655020CE511F00552EA5 /* MMMMusicManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832D654F20CE511F00552EA5 /* MMMMusicManager.swift */; };
+		832D655220CE678600552EA5 /* Music in Resources */ = {isa = PBXBuildFile; fileRef = 832D655120CE678600552EA5 /* Music */; };
 		8334864020C974FB0031A90B /* MMMMusicPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8334863F20C974FB0031A90B /* MMMMusicPlayer.swift */; };
 		8334864420C976200031A90B /* MMMMineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8334864320C976200031A90B /* MMMMineViewController.swift */; };
 		8334864620C9762C0031A90B /* MMMPersonalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8334864520C9762C0031A90B /* MMMPersonalViewController.swift */; };
@@ -21,7 +23,6 @@
 		8334865220C997690031A90B /* MMMBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8334865120C997690031A90B /* MMMBaseViewController.swift */; };
 		8334865420CB74120031A90B /* MMMListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8334865320CB74120031A90B /* MMMListViewController.swift */; };
 		8334865620CB7A590031A90B /* MMMHomeListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8334865520CB7A590031A90B /* MMMHomeListCell.swift */; };
-		8334865820CB89650031A90B /* 01 Stay With Me.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8334865720CB89650031A90B /* 01 Stay With Me.mp3 */; };
 		8334865C20CB8B3E0031A90B /* icon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8334865A20CB8B3E0031A90B /* icon.jpg */; };
 		8334865D20CB8B3E0031A90B /* dota2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8334865B20CB8B3E0031A90B /* dota2.jpg */; };
 		AA4CCA17BB0EEADE4C2EB3A6 /* Pods_MumuMusic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CC9D454CCB552B1B7E03615 /* Pods_MumuMusic.framework */; };
@@ -36,8 +37,10 @@
 		830ECEFF20C5A129001B2036 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		830ECF0420C5A129001B2036 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		832D654120C7B90700552EA5 /* MMMLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMMLoginViewController.swift; sourceTree = "<group>"; };
-		832D654920C92E2000552EA5 /* Ailee - 像初雪一样靠近你.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Ailee - 像初雪一样靠近你.mp3"; sourceTree = "<group>"; };
 		832D654B20CA841600552EA5 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		832D654D20CE15B600552EA5 /* MMMMusicModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMMMusicModel.swift; sourceTree = "<group>"; };
+		832D654F20CE511F00552EA5 /* MMMMusicManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMMMusicManager.swift; sourceTree = "<group>"; };
+		832D655120CE678600552EA5 /* Music */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Music; sourceTree = "<group>"; };
 		8334863F20C974FB0031A90B /* MMMMusicPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMMMusicPlayer.swift; sourceTree = "<group>"; };
 		8334864320C976200031A90B /* MMMMineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMMMineViewController.swift; sourceTree = "<group>"; };
 		8334864520C9762C0031A90B /* MMMPersonalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMMPersonalViewController.swift; sourceTree = "<group>"; };
@@ -47,7 +50,6 @@
 		8334865120C997690031A90B /* MMMBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMMBaseViewController.swift; sourceTree = "<group>"; };
 		8334865320CB74120031A90B /* MMMListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMMListViewController.swift; sourceTree = "<group>"; };
 		8334865520CB7A590031A90B /* MMMHomeListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMMHomeListCell.swift; sourceTree = "<group>"; };
-		8334865720CB89650031A90B /* 01 Stay With Me.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "01 Stay With Me.mp3"; sourceTree = "<group>"; };
 		8334865A20CB8B3E0031A90B /* icon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = icon.jpg; sourceTree = "<group>"; };
 		8334865B20CB8B3E0031A90B /* dota2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = dota2.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -93,28 +95,19 @@
 		830ECEF720C5A129001B2036 /* MumuMusic */ = {
 			isa = PBXGroup;
 			children = (
+				832D655120CE678600552EA5 /* Music */,
 				8334865920CB8B3E0031A90B /* Image */,
 				8334864920C976CF0031A90B /* Common */,
 				8334863D20C974FB0031A90B /* Home */,
 				8334863C20C974FB0031A90B /* Mine */,
 				8334863B20C974FB0031A90B /* Personal */,
 				8334863E20C974FB0031A90B /* Play */,
-				832D654820C92E2000552EA5 /* Music */,
 				830ECEF820C5A129001B2036 /* AppDelegate.swift */,
 				830ECEFF20C5A129001B2036 /* Assets.xcassets */,
 				830ECF0420C5A129001B2036 /* Info.plist */,
 				832D654120C7B90700552EA5 /* MMMLoginViewController.swift */,
 			);
 			path = MumuMusic;
-			sourceTree = "<group>";
-		};
-		832D654820C92E2000552EA5 /* Music */ = {
-			isa = PBXGroup;
-			children = (
-				8334865720CB89650031A90B /* 01 Stay With Me.mp3 */,
-				832D654920C92E2000552EA5 /* Ailee - 像初雪一样靠近你.mp3 */,
-			);
-			path = Music;
 			sourceTree = "<group>";
 		};
 		8334863B20C974FB0031A90B /* Personal */ = {
@@ -148,6 +141,8 @@
 			children = (
 				8334863F20C974FB0031A90B /* MMMMusicPlayer.swift */,
 				8334864720C976400031A90B /* MMMPlayViewController.swift */,
+				832D654D20CE15B600552EA5 /* MMMMusicModel.swift */,
+				832D654F20CE511F00552EA5 /* MMMMusicManager.swift */,
 			);
 			path = Play;
 			sourceTree = "<group>";
@@ -267,9 +262,8 @@
 			files = (
 				8334865C20CB8B3E0031A90B /* icon.jpg in Resources */,
 				830ECF0020C5A129001B2036 /* Assets.xcassets in Resources */,
+				832D655220CE678600552EA5 /* Music in Resources */,
 				8334865D20CB8B3E0031A90B /* dota2.jpg in Resources */,
-				8334865820CB89650031A90B /* 01 Stay With Me.mp3 in Resources */,
-				832D654A20C92E2100552EA5 /* Ailee - 像初雪一样靠近你.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -323,6 +317,7 @@
 				8334865220C997690031A90B /* MMMBaseViewController.swift in Sources */,
 				832D654220C7B90700552EA5 /* MMMLoginViewController.swift in Sources */,
 				8334865420CB74120031A90B /* MMMListViewController.swift in Sources */,
+				832D654E20CE15B600552EA5 /* MMMMusicModel.swift in Sources */,
 				8334864820C976400031A90B /* MMMPlayViewController.swift in Sources */,
 				8334864620C9762C0031A90B /* MMMPersonalViewController.swift in Sources */,
 				830ECEF920C5A129001B2036 /* AppDelegate.swift in Sources */,
@@ -331,6 +326,7 @@
 				832D654C20CA841600552EA5 /* Constant.swift in Sources */,
 				8334864420C976200031A90B /* MMMMineViewController.swift in Sources */,
 				8334864020C974FB0031A90B /* MMMMusicPlayer.swift in Sources */,
+				832D655020CE511F00552EA5 /* MMMMusicManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

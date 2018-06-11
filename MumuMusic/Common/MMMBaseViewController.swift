@@ -9,7 +9,7 @@
 import UIKit
 
 class MMMBaseViewController: UIViewController {
-    var showNavi :Bool = true
+    var showNavi: Bool = true
     
     
     override func viewDidLoad() {

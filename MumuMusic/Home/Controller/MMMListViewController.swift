@@ -41,6 +41,7 @@ class MMMListViewController: MMMBaseViewController, UITableViewDataSource, UITab
 
 }
 
+//MARK: - DataSource
 extension MMMListViewController {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 6
@@ -52,5 +53,12 @@ extension MMMListViewController {
             cell = MMMHomeListCell.init(style: .default, reuseIdentifier: reuseIdentifier, type: HomeCellType(rawValue: 0)!)
         }
         return cell!
+    }
+}
+//MARK: - Delegate
+extension MMMListViewController {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let musicPlay = MMMPlayViewController()
+        self.present(musicPlay, animated: true, completion: nil)
     }
 }
