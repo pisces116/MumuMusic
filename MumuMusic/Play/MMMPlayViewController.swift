@@ -12,19 +12,31 @@ class MMMPlayViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.musicManager = MMMMusicManager(type: MusicDataSourceType(rawValue: 0)!)
         setupUI()
-        
+        if self.playMusic {
+           self.playButtonClick(sender: self.playButton)
+        }
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
     
+    init(manager: MMMMusicManager, playMusic: Bool) {
+        super.init(nibName: nil, bundle: nil)
+        self.musicManager = manager
+        self.playMusic = playMusic
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     //MARK: - Private Func
     private func setupUI() {
         self.view.backgroundColor = UIColor.white
         self.view.addSubview(self.artworkImageView)
+        self.view.addSubview(self.progressBar)
         self.view.addSubview(self.nameLabel)
         self.view.addSubview(self.disMissButton)
         self.view.addSubview(self.playButton)
@@ -37,6 +49,10 @@ class MMMPlayViewController: UIViewController {
         self.artworkImageView.snp.makeConstraints { (make) in
             make.top.leading.trailing.equalToSuperview()
             make.height.equalTo(kScreenWidth)
+        }
+        self.progressBar.snp.makeConstraints { (make) in
+            make.leading.trailing.equalToSuperview()
+            make.top.equalTo(self.artworkImageView.snp.bottom)
         }
         self.nameLabel.snp.makeConstraints { (make) in
             make.centerX.equalToSuperview()
@@ -51,14 +67,28 @@ class MMMPlayViewController: UIViewController {
         self.nameLabel.text = self.musicManager?.currentMusic?.name
     }
     
+    @objc private func updateUI() {
+        let percent = (MMMMusicPlayer.sharedInstance.musicPlayer?.currentTime)! / (MMMMusicPlayer.sharedInstance.musicPlayer?.duration)!
+        self.progressBar.setValue(Float(percent), animated: true)
+    }
+    
     //MARK: - Action
     @objc private func playButtonClick(sender: UIButton) {
         sender.isSelected = !sender.isSelected
         if sender.isSelected {
             MMMMusicPlayer.sharedInstance.play(url: (self.musicManager?.currentMusic?.url)!)
+            self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateUI), userInfo: nil, repeats: true)
         } else {
+            guard let timer = self.timer else {return}
+            timer.invalidate()
+            self.timer = nil
             MMMMusicPlayer.sharedInstance.pause()
         }
+    }
+    
+    @objc private func progressValueChanged(sender: UISlider) {
+        let time = sender.value * Float((MMMMusicPlayer.sharedInstance.musicPlayer?.duration)!)
+        MMMMusicPlayer.sharedInstance.musicPlayer?.currentTime = TimeInterval(time)
     }
     
     @objc private func disMissButtonClick(sender: UIButton) {
@@ -71,6 +101,8 @@ class MMMPlayViewController: UIViewController {
     }
     
     //MARK: - Properties
+    //直接播放
+    fileprivate var playMusic: Bool = false
     //数据管理
     fileprivate var musicManager: MMMMusicManager?
     //封面
@@ -96,6 +128,16 @@ class MMMPlayViewController: UIViewController {
         button.addTarget(self, action: #selector(playButtonClick(sender:)), for: .touchUpInside)
         return button
     }()
+    //进度条
+    fileprivate lazy var progressBar: UISlider = {
+        var slider = UISlider()
+        slider.minimumValue = 0
+        slider.maximumValue = 1
+        slider.addTarget(self, action: #selector(progressValueChanged(sender:)), for: .valueChanged)
+        return slider
+    }()
+    //定时器
+    fileprivate var timer: Timer?
     fileprivate lazy var disMissButton: UIButton = {
         var button = UIButton(type: .custom)
         button.setTitle("Back", for: .normal)
@@ -103,6 +145,7 @@ class MMMPlayViewController: UIViewController {
         button.addTarget(self, action: #selector(disMissButtonClick(sender:)), for: .touchUpInside)
         return button
     }()
+    
     
 
 }

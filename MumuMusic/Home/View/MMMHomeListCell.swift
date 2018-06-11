@@ -17,20 +17,18 @@ enum HomeCellType: Int {
 
 class MMMHomeListCell: UITableViewCell {
     fileprivate lazy var iconImageView: UIImageView = {
-        return UIImageView.init(image: UIImage.init(named: "icon.jpg"))
+        return UIImageView.init()
     }()
     fileprivate var homeTitleLabel: UILabel = {
         var label = UILabel.init()
         label.font = UIFont.systemFont(ofSize: 16)
         label.textColor = UIColor.rgbColorFromHex(rgb: 0x333333)
-        label.text = "MUMU"
         return label
     }()
     fileprivate var homeContentLabel: UILabel = {
         var label = UILabel.init()
         label.font = UIFont.systemFont(ofSize: 16)
         label.textColor = UIColor.rgbColorFromHex(rgb: 0x666666)
-        label.text = "1024"
         return label
     }()
     fileprivate var editButton: UIButton = {
@@ -40,6 +38,12 @@ class MMMHomeListCell: UITableViewCell {
     init(style: UITableViewCellStyle, reuseIdentifier: String?, type: HomeCellType) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.createSubViews()
+    }
+    
+    func updateCell(model: MMMMusicModel) {
+        self.iconImageView.image = model.image
+        self.homeTitleLabel.text = model.name
+        self.homeContentLabel.text = model.artist
     }
     
     private func createSubViews() {

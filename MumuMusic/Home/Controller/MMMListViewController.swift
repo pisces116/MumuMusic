@@ -12,9 +12,10 @@ let reuseIdentifier: String = "MMMHomeListCell"
 
 class MMMListViewController: MMMBaseViewController, UITableViewDataSource, UITableViewDelegate{
     fileprivate var tableView: UITableView!
-    
+    fileprivate var musicManager: MMMMusicManager?
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.musicManager = MMMMusicManager(type: MusicDataSourceType(rawValue: 0)!)
         self.setupUI()
         
     }
@@ -44,7 +45,7 @@ class MMMListViewController: MMMBaseViewController, UITableViewDataSource, UITab
 //MARK: - DataSource
 extension MMMListViewController {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 6
+        return (self.musicManager?.musicArray?.count)!
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -52,13 +53,15 @@ extension MMMListViewController {
         if cell == nil {
             cell = MMMHomeListCell.init(style: .default, reuseIdentifier: reuseIdentifier, type: HomeCellType(rawValue: 0)!)
         }
+        cell.updateCell(model: self.musicManager!.musicArray![indexPath.row])
         return cell!
     }
 }
 //MARK: - Delegate
 extension MMMListViewController {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let musicPlay = MMMPlayViewController()
+        self.musicManager?.currentMusic = self.musicManager?.musicArray![indexPath.row]
+        let musicPlay = MMMPlayViewController.init(manager: self.musicManager!, playMusic: true)
         self.present(musicPlay, animated: true, completion: nil)
     }
 }

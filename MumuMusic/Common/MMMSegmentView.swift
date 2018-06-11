@@ -72,8 +72,8 @@ class MMMSegmentView: UIView {
         if index < self.buttonArray.count {
             let button = self.buttonArray[selectIndex]
             let selectButton = self.buttonArray[index]
-            button.titleLabel?.font = UIFont.systemFont(ofSize: 16);
-            selectButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+            button.titleLabel?.font = UIFont.systemFont(ofSize: 18);
+            selectButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
             selectIndex = index
         }
     }

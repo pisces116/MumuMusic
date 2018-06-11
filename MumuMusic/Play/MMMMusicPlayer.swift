@@ -11,30 +11,28 @@ import AVFoundation
 
 class MMMMusicPlayer: NSObject {
     
-    var music: MMMMusicModel?
+    var musicPlayer: AVAudioPlayer?
     static let sharedInstance = MMMMusicPlayer()
     private override init() {}
-    private var avPlayer: AVAudioPlayer?
-    
     
     func play(url: URL) {
-        if url == avPlayer?.url {
-            avPlayer?.play()
+        if url == musicPlayer?.url {
+            musicPlayer?.play()
             return
         }
         do {
-            avPlayer = try AVAudioPlayer(contentsOf: url)
+            musicPlayer = try AVAudioPlayer(contentsOf: url)
         } catch {
             print(error)
             return
         }
-        avPlayer?.prepareToPlay()
-        avPlayer?.play()
+        musicPlayer?.prepareToPlay()
+        musicPlayer?.play()
     }
     func pause() {
-        avPlayer?.pause()
+        musicPlayer?.pause()
     }
     func stop() {
-        avPlayer?.stop()
+        musicPlayer?.stop()
     }
 }

@@ -25,12 +25,14 @@ class MMMHomeViewController: MMMBaseViewController {
         self.view.addSubview(self.listButton)
         self.listButton.setTitle("List", for: .normal)
         self.listButton.setTitleColor(UIColor.black, for: .normal)
+        self.listButton.titleLabel?.font = UIFont.systemFont(ofSize: 16)
         self.listButton.addTarget(self, action: #selector(listButtonClick(sender:)), for: .touchUpInside)
         
         self.searchButton = UIButton(type: .custom)
         self.view.addSubview(self.searchButton!)
         self.searchButton.setTitle("Search", for: .normal)
         self.searchButton.setTitleColor(UIColor.black, for: .normal)
+        self.searchButton.titleLabel?.font = UIFont.systemFont(ofSize: 16)
         
         self.segmentView = MMMSegmentView(frame: CGRect.zero, titles: ["HOME","ME"])
         self.segmentView.setSelectTitle(index: 0)
@@ -54,8 +56,8 @@ class MMMHomeViewController: MMMBaseViewController {
         self.segmentView.snp.makeConstraints { (make) in
             make.top.equalToSuperview().offset(kTopMargin)
             make.height.equalTo(48)
-            make.leading.equalToSuperview().offset(48);
-            make.trailing.equalToSuperview().offset(-48)
+            make.centerX.equalToSuperview()
+            make.width.equalTo(kScreenWidth * 0.5)
         }
     }
     
