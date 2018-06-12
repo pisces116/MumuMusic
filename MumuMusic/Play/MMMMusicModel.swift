@@ -25,7 +25,7 @@ class MMMMusicModel: NSObject {
         let musicAsset = AVURLAsset(url: url!)
         for metaFormat in musicAsset.availableMetadataFormats {
             for musicMetaData in musicAsset.metadata(forFormat: metaFormat) {
-                print("key = \(String(describing: musicMetaData.commonKey?.rawValue)) value = \(String(describing: musicMetaData.value))")
+//                print("key = \(String(describing: musicMetaData.commonKey?.rawValue)) value = \(String(describing: musicMetaData.value))")
                 //歌曲名
                 if musicMetaData.commonKey?.rawValue == "title" {
                     self.name = musicMetaData.value as? String

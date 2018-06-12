@@ -60,8 +60,14 @@ extension MMMListViewController {
 //MARK: - Delegate
 extension MMMListViewController {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.tableView.deselectRow(at: indexPath, animated: true)
         self.musicManager?.currentMusic = self.musicManager?.musicArray![indexPath.row]
-        let musicPlay = MMMPlayViewController.init(manager: self.musicManager!, playMusic: true)
-        self.present(musicPlay, animated: true, completion: nil)
+        let musicPlayVC = MMMPlayViewController.init(playMusic: true)
+        MMMMusicPlayer.sharedInstance.musicList = self.musicManager?.musicArray
+        MMMMusicPlayer.sharedInstance.index = indexPath.row
+        MMMMusicPlayer.sharedInstance.musicModel = self.musicManager?.currentMusic
+        self.present(musicPlayVC, animated: true, completion: nil)
     }
+    
+    
 }
