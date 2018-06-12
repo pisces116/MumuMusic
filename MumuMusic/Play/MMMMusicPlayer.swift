@@ -26,6 +26,25 @@ class MMMMusicPlayer: NSObject,AVAudioPlayerDelegate {
     static let sharedInstance = MMMMusicPlayer()
     private override init() {}
     
+    func prepare() {
+        self.musicList = MMMMusicManager.prepareMusicList()
+        if (self.musicList?.count)! > 0 {
+            self.musicModel = self.musicList?.first
+            if musicModel?.url == musicPlayer?.url {
+                musicPlayer?.play()
+                return
+            }
+            do {
+                musicPlayer = try AVAudioPlayer(contentsOf: (musicModel?.url)!)
+                musicPlayer?.delegate = self
+            } catch {
+                print(error)
+                return
+            }
+            musicPlayer?.prepareToPlay()
+        }
+    }
+    
     func play() {
         if musicModel?.url == musicPlayer?.url {
             musicPlayer?.play()
@@ -69,6 +88,7 @@ class MMMMusicPlayer: NSObject,AVAudioPlayerDelegate {
 
 extension MMMMusicPlayer {
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
+        next()
         NotificationCenter.default.post(Notification(name: Notification.Name(rawValue: kNotificationMusicPlayEnd)))
     }
 }

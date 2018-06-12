@@ -16,7 +16,7 @@ class MMMPlayViewController: UIViewController {
         if self.playMusic {
            self.playButtonClick(sender: self.playButton)
         }
-        NotificationCenter.default.addObserver(self, selector: #selector(nextButtonClick(sender:)), name: NSNotification.Name(rawValue: kNotificationMusicPlayEnd), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateUI), name: NSNotification.Name(rawValue: kNotificationMusicPlayEnd), object: nil)
     }
     
     deinit {
@@ -79,6 +79,7 @@ class MMMPlayViewController: UIViewController {
         }
         self.artworkImageView.image = MMMMusicPlayer.sharedInstance.musicModel?.image
         self.nameLabel.text = MMMMusicPlayer.sharedInstance.musicModel?.name
+        updateProgress()
     }
     
     private func processBarImage() -> UIImage? {
@@ -97,13 +98,13 @@ class MMMPlayViewController: UIViewController {
     }
     
     @objc private func updateProgress() {
-        let percent = (MMMMusicPlayer.sharedInstance.musicPlayer?.currentTime)! / (MMMMusicPlayer.sharedInstance.musicPlayer?.duration)!
+        let percent = (MMMMusicPlayer.sharedInstance.musicPlayer?.currentTime)! / (MMMMusicPlayer.sharedInstance.musicPlayer?.duration)! 
         self.progressBar.setValue(Float(percent), animated: true)
         if let image = self.processBarImage() {
             self.progressBar.setThumbImage(image, for: .normal)
         }
     }
-    private func updateUI() {
+    @objc private func updateUI() {
         self.artworkImageView.image = MMMMusicPlayer.sharedInstance.musicModel?.image
         self.nameLabel.text = MMMMusicPlayer.sharedInstance.musicModel?.name
     }

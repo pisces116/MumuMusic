@@ -35,5 +35,8 @@ class MMMMusicManager: NSObject {
             currentMusic = musicArray?.first
         }
     }
+    class func prepareMusicList() -> [MMMMusicModel] {
+        return self.init(type: MusicDataSourceType(rawValue: 0)!).musicArray!
+    }
 
 }
