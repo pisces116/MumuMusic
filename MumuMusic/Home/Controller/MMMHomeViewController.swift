@@ -9,10 +9,15 @@
 import UIKit
 
 class MMMHomeViewController: MMMBaseViewController {
+    //顶部导航
     fileprivate var segmentView: MMMSegmentView!
     fileprivate var searchButton: UIButton!
     fileprivate var listButton: UIButton!
-
+    //分类型跳转
+    fileprivate var favorityView: MMMHomeTypeView!
+    fileprivate var localView: MMMHomeTypeView!
+    fileprivate var historyView: MMMHomeTypeView!
+    //推荐
     override func viewDidLoad() {
         super.viewDidLoad()
         self.showNavi = false
@@ -20,7 +25,11 @@ class MMMHomeViewController: MMMBaseViewController {
     }
     
     private func setupUI() {
-        view.backgroundColor = UIColor.white
+        createTopNaviView()
+        createTypeViews()
+    }
+    
+    private func createTopNaviView() {
         self.listButton = UIButton(type: .custom)
         self.view.addSubview(self.listButton)
         self.listButton.setTitle("List", for: .normal)
@@ -60,9 +69,52 @@ class MMMHomeViewController: MMMBaseViewController {
             make.width.equalTo(kScreenWidth * 0.5)
         }
     }
+    private func createTypeViews() {
+        self.favorityView = MMMHomeTypeView(frame: CGRect.zero, title: "喜欢&收藏", subTitle: "0")
+        self.localView = MMMHomeTypeView(frame: CGRect.zero, title: "本地音乐", subTitle: "0")
+        self.historyView = MMMHomeTypeView(frame: CGRect.zero, title: "历史播放", subTitle: "0")
+        
+        self.view.addSubview(self.favorityView)
+        self.view.addSubview(self.localView)
+        self.view.addSubview(self.historyView)
+        
+        self.favorityView.snp.makeConstraints { (make) in
+            make.leading.equalToSuperview().offset(20)
+            make.top.equalTo(self.segmentView.snp.bottom).offset(20)
+            make.height.equalTo(80)
+        }
+        self.localView.snp.makeConstraints { (make) in
+            make.leading.equalTo(self.favorityView.snp.trailing)
+            make.height.width.top.equalTo(self.favorityView)
+        }
+        self.historyView.snp.makeConstraints { (make) in
+            make.leading.equalTo(self.localView.snp.trailing)
+            make.height.width.top.equalTo(self.favorityView)
+            make.trailing.equalToSuperview().offset(20)
+        }
+        weak var weakSelf = self
+        self.favorityView.viewSelectClosure = {
+            if let strongSelf = weakSelf {
+                let favorityVC = MMMFavorityViewController()
+                strongSelf.navigationController?.pushViewController(favorityVC, animated: true)
+            }
+        }
+        self.localView.viewSelectClosure = {
+            if let strongSelf = weakSelf {
+                let localVC = MMMListViewController(type: MusicListType(rawValue: 0)!)
+                strongSelf.navigationController?.pushViewController(localVC, animated: true)
+            }
+        }
+        self.historyView.viewSelectClosure = {
+            if let strongSelf = weakSelf {
+                let historyVC = MMMListViewController(type: MusicListType(rawValue: 1)!)
+                strongSelf.navigationController?.pushViewController(historyVC, animated: true)
+            }
+        }
+    }
     
     @objc func listButtonClick(sender: UIButton) {
-        self.navigationController?.pushViewController(MMMListViewController.init(), animated: true)
+        self.navigationController?.pushViewController(MMMListViewController(type: MusicListType(rawValue: 2)!), animated: true)
     }
 
     override func didReceiveMemoryWarning() {

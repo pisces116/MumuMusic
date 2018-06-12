@@ -14,6 +14,7 @@ class MMMBaseViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = UIColor.white
         
     }
     override func viewWillAppear(_ animated: Bool) {

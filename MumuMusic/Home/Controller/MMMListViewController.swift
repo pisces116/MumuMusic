@@ -8,11 +8,37 @@
 
 import UIKit
 
+enum MusicListType: Int {
+    case MusicListLocal = 0
+    case MusicListHistory = 1
+    case MusicListArtist = 2
+    case MusicListAlbum = 3
+}
+
 let reuseIdentifier: String = "MMMHomeListCell"
 
 class MMMListViewController: MMMBaseViewController, UITableViewDataSource, UITableViewDelegate{
     fileprivate var tableView: UITableView!
     fileprivate var musicManager: MMMMusicManager?
+    
+    init(type: MusicListType) {
+        super.init(nibName: nil, bundle: nil)
+        switch type {
+        case .MusicListHistory:
+            self.title = "播放历史"
+        case .MusicListLocal:
+            self.title = "本地歌曲"
+        case .MusicListArtist:
+            self.title = "歌手"
+        case .MusicListAlbum:
+            self.title = "专辑"
+        }
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.musicManager = MMMMusicManager(type: MusicDataSourceType(rawValue: 0)!)
@@ -38,8 +64,6 @@ class MMMListViewController: MMMBaseViewController, UITableViewDataSource, UITab
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
 }
 
 //MARK: - DataSource
