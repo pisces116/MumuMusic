@@ -107,6 +107,10 @@ class MMMPlayViewController: UIViewController {
     @objc private func updateUI() {
         self.artworkImageView.image = MMMMusicPlayer.sharedInstance.musicModel?.image
         self.nameLabel.text = MMMMusicPlayer.sharedInstance.musicModel?.name
+        self.playButton.isSelected = (MMMMusicPlayer.sharedInstance.musicPlayer?.isPlaying)!
+        if self.timer == nil {
+            self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateProgress), userInfo: nil, repeats: true)
+        }
     }
     
     //MARK: - Action
@@ -152,6 +156,8 @@ class MMMPlayViewController: UIViewController {
     //封面
     fileprivate lazy var artworkImageView: UIImageView = {
         var imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
         return imageView
     }()
     //歌曲名

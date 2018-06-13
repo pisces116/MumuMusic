@@ -17,7 +17,9 @@ enum HomeCellType: Int {
 
 class MMMHomeListCell: UITableViewCell {
     fileprivate lazy var iconImageView: UIImageView = {
-        return UIImageView.init()
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
+        return imageView
     }()
     fileprivate var homeTitleLabel: UILabel = {
         var label = UILabel.init()

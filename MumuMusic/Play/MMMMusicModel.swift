@@ -19,6 +19,7 @@ class MMMMusicModel: NSObject {
     var isActive: Bool = false
     
     init(name: String) {
+        super.init()
         let filePath = Bundle.main.path(forResource: "Music", ofType: nil)
         let musicPath = filePath! + "/" + name
         url = URL.init(fileURLWithPath: musicPath)
