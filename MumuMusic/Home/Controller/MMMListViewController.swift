@@ -73,9 +73,9 @@ extension MMMListViewController {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell: MMMHomeListCell! = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier) as? MMMHomeListCell
+        var cell: MMMSingerListCell! = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier) as? MMMSingerListCell
         if cell == nil {
-            cell = MMMHomeListCell.init(style: .default, reuseIdentifier: reuseIdentifier, type: HomeCellType(rawValue: 0)!)
+            cell = MMMSingerListCell.init(style: .default, reuseIdentifier: reuseIdentifier)
         }
         cell.updateCell(model: self.musicManager!.musicArray![indexPath.row])
         return cell!
@@ -85,11 +85,9 @@ extension MMMListViewController {
 extension MMMListViewController {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.tableView.deselectRow(at: indexPath, animated: true)
-        self.musicManager?.currentMusic = self.musicManager?.musicArray![indexPath.row]
         let musicPlayVC = MMMPlayViewController.init(playMusic: true)
-        MMMMusicPlayer.sharedInstance.musicList = self.musicManager?.musicArray
         MMMMusicPlayer.sharedInstance.index = indexPath.row
-        MMMMusicPlayer.sharedInstance.musicModel = self.musicManager?.currentMusic
+        MMMMusicPlayer.sharedInstance.musicModel = MMMMusicPlayer.sharedInstance.musicList?[indexPath.row]
         self.present(musicPlayVC, animated: true, completion: nil)
     }
     

@@ -23,11 +23,14 @@
 		8334865020C976FB0031A90B /* MMMSegmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8334864F20C976FB0031A90B /* MMMSegmentView.swift */; };
 		8334865220C997690031A90B /* MMMBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8334865120C997690031A90B /* MMMBaseViewController.swift */; };
 		8334865420CB74120031A90B /* MMMListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8334865320CB74120031A90B /* MMMListViewController.swift */; };
-		8334865620CB7A590031A90B /* MMMHomeListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8334865520CB7A590031A90B /* MMMHomeListCell.swift */; };
+		8334865620CB7A590031A90B /* MMMSingerListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8334865520CB7A590031A90B /* MMMSingerListCell.swift */; };
 		8334865C20CB8B3E0031A90B /* icon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8334865A20CB8B3E0031A90B /* icon.jpg */; };
 		8334865D20CB8B3E0031A90B /* dota2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8334865B20CB8B3E0031A90B /* dota2.jpg */; };
 		8334865F20D016F10031A90B /* MMMHomeTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8334865E20D016F10031A90B /* MMMHomeTypeView.swift */; };
 		8334866120D01EC00031A90B /* MMMFavorityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8334866020D01EC00031A90B /* MMMFavorityViewController.swift */; };
+		839B51E620D77C4200E4D8FB /* MMMMusicListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839B51E520D77C4200E4D8FB /* MMMMusicListCell.swift */; };
+		839B51E820D77C5500E4D8FB /* MMMAlbumListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839B51E720D77C5500E4D8FB /* MMMAlbumListCell.swift */; };
+		839B51EA20D77C6F00E4D8FB /* MMMMVListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839B51E920D77C6F00E4D8FB /* MMMMVListCell.swift */; };
 		AA4CCA17BB0EEADE4C2EB3A6 /* Pods_MumuMusic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CC9D454CCB552B1B7E03615 /* Pods_MumuMusic.framework */; };
 /* End PBXBuildFile section */
 
@@ -53,11 +56,14 @@
 		8334864F20C976FB0031A90B /* MMMSegmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMMSegmentView.swift; sourceTree = "<group>"; };
 		8334865120C997690031A90B /* MMMBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMMBaseViewController.swift; sourceTree = "<group>"; };
 		8334865320CB74120031A90B /* MMMListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMMListViewController.swift; sourceTree = "<group>"; };
-		8334865520CB7A590031A90B /* MMMHomeListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMMHomeListCell.swift; sourceTree = "<group>"; };
+		8334865520CB7A590031A90B /* MMMSingerListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMMSingerListCell.swift; sourceTree = "<group>"; };
 		8334865A20CB8B3E0031A90B /* icon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = icon.jpg; sourceTree = "<group>"; };
 		8334865B20CB8B3E0031A90B /* dota2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = dota2.jpg; sourceTree = "<group>"; };
 		8334865E20D016F10031A90B /* MMMHomeTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMMHomeTypeView.swift; sourceTree = "<group>"; };
 		8334866020D01EC00031A90B /* MMMFavorityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMMFavorityViewController.swift; sourceTree = "<group>"; };
+		839B51E520D77C4200E4D8FB /* MMMMusicListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMMMusicListCell.swift; sourceTree = "<group>"; };
+		839B51E720D77C5500E4D8FB /* MMMAlbumListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMMAlbumListCell.swift; sourceTree = "<group>"; };
+		839B51E920D77C6F00E4D8FB /* MMMMVListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMMMVListCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,7 +180,10 @@
 		8334864B20C976DA0031A90B /* View */ = {
 			isa = PBXGroup;
 			children = (
-				8334865520CB7A590031A90B /* MMMHomeListCell.swift */,
+				8334865520CB7A590031A90B /* MMMSingerListCell.swift */,
+				839B51E520D77C4200E4D8FB /* MMMMusicListCell.swift */,
+				839B51E720D77C5500E4D8FB /* MMMAlbumListCell.swift */,
+				839B51E920D77C6F00E4D8FB /* MMMMVListCell.swift */,
 				8334865E20D016F10031A90B /* MMMHomeTypeView.swift */,
 			);
 			path = View;
@@ -327,6 +336,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				839B51EA20D77C6F00E4D8FB /* MMMMVListCell.swift in Sources */,
 				8334865020C976FB0031A90B /* MMMSegmentView.swift in Sources */,
 				8334865220C997690031A90B /* MMMBaseViewController.swift in Sources */,
 				832D654220C7B90700552EA5 /* MMMLoginViewController.swift in Sources */,
@@ -338,12 +348,14 @@
 				8334865F20D016F10031A90B /* MMMHomeTypeView.swift in Sources */,
 				8334864620C9762C0031A90B /* MMMPersonalViewController.swift in Sources */,
 				830ECEF920C5A129001B2036 /* AppDelegate.swift in Sources */,
+				839B51E820D77C5500E4D8FB /* MMMAlbumListCell.swift in Sources */,
 				8334864E20C976DA0031A90B /* MMMHomeViewController.swift in Sources */,
-				8334865620CB7A590031A90B /* MMMHomeListCell.swift in Sources */,
+				8334865620CB7A590031A90B /* MMMSingerListCell.swift in Sources */,
 				832D654C20CA841600552EA5 /* Constant.swift in Sources */,
 				8334864420C976200031A90B /* MMMMineViewController.swift in Sources */,
 				8334864020C974FB0031A90B /* MMMMusicPlayer.swift in Sources */,
 				832D655020CE511F00552EA5 /* MMMMusicManager.swift in Sources */,
+				839B51E620D77C4200E4D8FB /* MMMMusicListCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

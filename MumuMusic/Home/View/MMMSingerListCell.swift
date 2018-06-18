@@ -8,14 +8,7 @@
 
 import UIKit
 
-enum HomeCellType: Int {
-    case HomeCellMusicType = 0
-    case HomeCellSingerType = 1
-    case HomeCellAlbumType = 2
-    case HomeCellGenreType = 3
-}
-
-class MMMHomeListCell: UITableViewCell {
+class MMMSingerListCell: UITableViewCell {
     fileprivate lazy var iconImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
@@ -37,9 +30,9 @@ class MMMHomeListCell: UITableViewCell {
         return UIButton(type: .custom)
     }()
 
-    init(style: UITableViewCellStyle, reuseIdentifier: String?, type: HomeCellType) {
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        self.createSubViews()
+        createSubViews()
     }
     
     func updateCell(model: MMMMusicModel) {
