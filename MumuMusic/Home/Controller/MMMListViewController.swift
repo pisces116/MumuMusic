@@ -15,14 +15,16 @@ enum MusicListType: Int {
     case MusicListAlbum = 3
 }
 
-let reuseIdentifier: String = "MMMHomeListCell"
+let reuseIdentifier: String = "MMMMusicListCell"
 
 class MMMListViewController: MMMBaseViewController, UITableViewDataSource, UITableViewDelegate{
     fileprivate var tableView: UITableView!
     fileprivate var musicManager: MMMMusicManager?
+    fileprivate var type: MusicListType?
     
     init(type: MusicListType) {
         super.init(nibName: nil, bundle: nil)
+        self.type = type
         switch type {
         case .MusicListHistory:
             self.title = "播放历史"
@@ -52,7 +54,7 @@ class MMMListViewController: MMMBaseViewController, UITableViewDataSource, UITab
         self.tableView.dataSource = self
         self.tableView.delegate = self
         self.tableView.separatorStyle = .none
-        self.tableView.rowHeight = 90
+        self.tableView.rowHeight = 66
         
         self.view.addSubview(self.tableView)
         self.tableView.snp.makeConstraints { (make) in
@@ -73,9 +75,9 @@ extension MMMListViewController {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell: MMMSingerListCell! = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier) as? MMMSingerListCell
+        var cell: MMMMusicListCell! = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier) as?MMMMusicListCell
         if cell == nil {
-            cell = MMMSingerListCell.init(style: .default, reuseIdentifier: reuseIdentifier)
+            cell = MMMMusicListCell.init(style: .default, reuseIdentifier: reuseIdentifier)
         }
         cell.updateCell(model: self.musicManager!.musicArray![indexPath.row])
         return cell!

@@ -15,7 +15,8 @@ class MMMBaseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.white
-        
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage.imageWithColor(UIColor.white), for: .any, barMetrics: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
     }
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.setNavigationBarHidden(!showNavi, animated: animated)

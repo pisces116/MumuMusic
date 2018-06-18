@@ -24,6 +24,7 @@ class MMMFavorityViewController: MMMBaseViewController,UITableViewDataSource,UIT
     
     private func createSubViews() {
         self.itemScrollView = MMMItemScrollView(frame: CGRect.zero, titles: ["单曲", "艺人", "专辑", "MV", "流派"])
+        self.itemScrollView?.setSelectTitle(index: 0)
         self.tableView = UITableView.init(frame: CGRect.zero, style: .plain)
         self.tableView.backgroundColor = UIColor.white
         self.tableView.dataSource = self
@@ -32,7 +33,7 @@ class MMMFavorityViewController: MMMBaseViewController,UITableViewDataSource,UIT
         self.tableView.rowHeight = 90
         self.view.addSubview(self.itemScrollView!)
         self.itemScrollView?.snp.makeConstraints { (make) in
-            make.top.equalToSuperview().offset(kTopMargin + 44)
+            make.top.equalToSuperview()
             make.leading.trailing.equalToSuperview()
             make.height.equalTo(50)
         }

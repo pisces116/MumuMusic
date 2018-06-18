@@ -35,11 +35,7 @@ class MMMSingerListCell: UITableViewCell {
         createSubViews()
     }
     
-    func updateCell(model: MMMMusicModel) {
-        self.iconImageView.image = model.image
-        self.homeTitleLabel.text = model.name
-        self.homeContentLabel.text = model.artist
-    }
+    
     
     private func createSubViews() {
         self.contentView.addSubview(self.iconImageView)
