@@ -58,6 +58,7 @@ class MMMItemScrollView: UIScrollView {
             selectButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16);
             button.isSelected = false
             selectButton.isSelected = true
+            self.titleStr = selectButton.titleLabel?.text
             selectIndex = index
         }
     }
@@ -79,11 +80,11 @@ class MMMItemScrollView: UIScrollView {
         }
         updateSelectTitle(index: sender.tag)
         if self.titleClickClosure != nil {
-            self.titleClickClosure!(sender.tag)
+            self.titleClickClosure!()
         }
     }
     //MARK: - Public Properties
-    var titleClickClosure: ((Int) -> Void)?
+    var titleClickClosure: (() -> Void)?
     var titleStr: String?
     //MARK: - Private Properties
     fileprivate var selectIndex: Int = 0

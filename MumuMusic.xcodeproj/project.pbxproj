@@ -31,6 +31,9 @@
 		839B51E620D77C4200E4D8FB /* MMMMusicListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839B51E520D77C4200E4D8FB /* MMMMusicListCell.swift */; };
 		839B51E820D77C5500E4D8FB /* MMMAlbumListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839B51E720D77C5500E4D8FB /* MMMAlbumListCell.swift */; };
 		839B51EA20D77C6F00E4D8FB /* MMMMVListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839B51E920D77C6F00E4D8FB /* MMMMVListCell.swift */; };
+		83DD78D820D8EB4E00800640 /* MMMFavoriteDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DD78D720D8EB4E00800640 /* MMMFavoriteDataManager.swift */; };
+		83DD78DF20D8F48C00800640 /* MMMAlbumModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DD78DD20D8F48B00800640 /* MMMAlbumModel.swift */; };
+		83DD78E020D8F48C00800640 /* MMMSingerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DD78DE20D8F48C00800640 /* MMMSingerModel.swift */; };
 		AA4CCA17BB0EEADE4C2EB3A6 /* Pods_MumuMusic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CC9D454CCB552B1B7E03615 /* Pods_MumuMusic.framework */; };
 /* End PBXBuildFile section */
 
@@ -64,6 +67,9 @@
 		839B51E520D77C4200E4D8FB /* MMMMusicListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMMMusicListCell.swift; sourceTree = "<group>"; };
 		839B51E720D77C5500E4D8FB /* MMMAlbumListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMMAlbumListCell.swift; sourceTree = "<group>"; };
 		839B51E920D77C6F00E4D8FB /* MMMMVListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMMMVListCell.swift; sourceTree = "<group>"; };
+		83DD78D720D8EB4E00800640 /* MMMFavoriteDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMMFavoriteDataManager.swift; sourceTree = "<group>"; };
+		83DD78DD20D8F48B00800640 /* MMMAlbumModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMMAlbumModel.swift; sourceTree = "<group>"; };
+		83DD78DE20D8F48C00800640 /* MMMSingerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMMSingerModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,8 +147,8 @@
 		8334863D20C974FB0031A90B /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				83DD78D620D8EB3B00800640 /* Manager */,
 				8334864C20C976DA0031A90B /* Controller */,
-				8334864A20C976DA0031A90B /* Manager */,
 				8334864B20C976DA0031A90B /* View */,
 			);
 			path = Home;
@@ -168,13 +174,6 @@
 				8334865120C997690031A90B /* MMMBaseViewController.swift */,
 			);
 			path = Common;
-			sourceTree = "<group>";
-		};
-		8334864A20C976DA0031A90B /* Manager */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Manager;
 			sourceTree = "<group>";
 		};
 		8334864B20C976DA0031A90B /* View */ = {
@@ -206,6 +205,16 @@
 				8334865B20CB8B3E0031A90B /* dota2.jpg */,
 			);
 			path = Image;
+			sourceTree = "<group>";
+		};
+		83DD78D620D8EB3B00800640 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				83DD78DD20D8F48B00800640 /* MMMAlbumModel.swift */,
+				83DD78DE20D8F48C00800640 /* MMMSingerModel.swift */,
+				83DD78D720D8EB4E00800640 /* MMMFavoriteDataManager.swift */,
+			);
+			path = Manager;
 			sourceTree = "<group>";
 		};
 		D06984C126C2C7F59051FF32 /* Pods */ = {
@@ -343,8 +352,10 @@
 				8334865420CB74120031A90B /* MMMListViewController.swift in Sources */,
 				8334866120D01EC00031A90B /* MMMFavorityViewController.swift in Sources */,
 				832D654E20CE15B600552EA5 /* MMMMusicModel.swift in Sources */,
+				83DD78E020D8F48C00800640 /* MMMSingerModel.swift in Sources */,
 				8334864820C976400031A90B /* MMMPlayViewController.swift in Sources */,
 				832D655420D0B46600552EA5 /* MMMItemScrollView.swift in Sources */,
+				83DD78DF20D8F48C00800640 /* MMMAlbumModel.swift in Sources */,
 				8334865F20D016F10031A90B /* MMMHomeTypeView.swift in Sources */,
 				8334864620C9762C0031A90B /* MMMPersonalViewController.swift in Sources */,
 				830ECEF920C5A129001B2036 /* AppDelegate.swift in Sources */,
@@ -354,6 +365,7 @@
 				832D654C20CA841600552EA5 /* Constant.swift in Sources */,
 				8334864420C976200031A90B /* MMMMineViewController.swift in Sources */,
 				8334864020C974FB0031A90B /* MMMMusicPlayer.swift in Sources */,
+				83DD78D820D8EB4E00800640 /* MMMFavoriteDataManager.swift in Sources */,
 				832D655020CE511F00552EA5 /* MMMMusicManager.swift in Sources */,
 				839B51E620D77C4200E4D8FB /* MMMMusicListCell.swift in Sources */,
 			);

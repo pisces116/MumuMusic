@@ -29,13 +29,25 @@ class MMMSingerListCell: UITableViewCell {
     fileprivate var editButton: UIButton = {
         return UIButton(type: .custom)
     }()
+    
+    class func singerListCell(tableView: UITableView, reuseIdentifier: String) -> MMMSingerListCell {
+        var cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier) as? MMMSingerListCell
+        if cell == nil {
+            cell = MMMSingerListCell(style: .default, reuseIdentifier: reuseIdentifier)
+        }
+        return cell!
+    }
 
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         createSubViews()
     }
     
-    
+    func updateCell(model: MMMSingerModel) {
+        self.homeTitleLabel.text = model.singerName
+        self.homeContentLabel.text = "\(String(describing: (model.singerMusic?.count)!))首"
+        self.iconImageView.image = model.singerImage
+    }
     
     private func createSubViews() {
         self.contentView.addSubview(self.iconImageView)
@@ -51,6 +63,7 @@ class MMMSingerListCell: UITableViewCell {
         self.homeTitleLabel.snp.makeConstraints { (make) in
             make.top.equalTo(self.iconImageView)
             make.leading.equalTo(self.iconImageView.snp.trailing).offset(15)
+            make.trailing.equalToSuperview().offset(-15)
         }
         self.homeContentLabel.snp.makeConstraints { (make) in
             make.bottom.equalTo(self.iconImageView)

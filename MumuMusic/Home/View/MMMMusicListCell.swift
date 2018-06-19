@@ -10,6 +10,14 @@ import UIKit
 
 class MMMMusicListCell: UITableViewCell {
 
+    class func musicListCell(tableView: UITableView, reuseIdentifier: String) -> MMMMusicListCell {
+        var cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier) as? MMMMusicListCell
+        if cell == nil {
+            cell = MMMMusicListCell(style: .default, reuseIdentifier: reuseIdentifier)
+        }
+        return cell!
+    }
+    
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         createSubViews()
@@ -29,6 +37,7 @@ class MMMMusicListCell: UITableViewCell {
         self.contentView.addSubview(self.singerLabel)
         self.musicLabel.snp.makeConstraints { (make) in
             make.leading.equalToSuperview().offset(12)
+            make.trailing.equalToSuperview().offset(-12)
             make.top.equalToSuperview().offset(14)
         }
         self.singerLabel.snp.makeConstraints { (make) in
