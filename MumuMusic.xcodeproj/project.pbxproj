@@ -31,6 +31,7 @@
 		839B51E620D77C4200E4D8FB /* MMMMusicListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839B51E520D77C4200E4D8FB /* MMMMusicListCell.swift */; };
 		839B51E820D77C5500E4D8FB /* MMMAlbumListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839B51E720D77C5500E4D8FB /* MMMAlbumListCell.swift */; };
 		839B51EA20D77C6F00E4D8FB /* MMMMVListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839B51E920D77C6F00E4D8FB /* MMMMVListCell.swift */; };
+		83A0A24420DA8FB000749D79 /* MMMBottomPlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A0A24320DA8FB000749D79 /* MMMBottomPlayView.swift */; };
 		83DD78D820D8EB4E00800640 /* MMMFavoriteDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DD78D720D8EB4E00800640 /* MMMFavoriteDataManager.swift */; };
 		83DD78DF20D8F48C00800640 /* MMMAlbumModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DD78DD20D8F48B00800640 /* MMMAlbumModel.swift */; };
 		83DD78E020D8F48C00800640 /* MMMSingerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DD78DE20D8F48C00800640 /* MMMSingerModel.swift */; };
@@ -67,6 +68,7 @@
 		839B51E520D77C4200E4D8FB /* MMMMusicListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMMMusicListCell.swift; sourceTree = "<group>"; };
 		839B51E720D77C5500E4D8FB /* MMMAlbumListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMMAlbumListCell.swift; sourceTree = "<group>"; };
 		839B51E920D77C6F00E4D8FB /* MMMMVListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMMMVListCell.swift; sourceTree = "<group>"; };
+		83A0A24320DA8FB000749D79 /* MMMBottomPlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMMBottomPlayView.swift; sourceTree = "<group>"; };
 		83DD78D720D8EB4E00800640 /* MMMFavoriteDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMMFavoriteDataManager.swift; sourceTree = "<group>"; };
 		83DD78DD20D8F48B00800640 /* MMMAlbumModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMMAlbumModel.swift; sourceTree = "<group>"; };
 		83DD78DE20D8F48C00800640 /* MMMSingerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMMSingerModel.swift; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 			children = (
 				8334864F20C976FB0031A90B /* MMMSegmentView.swift */,
 				832D655320D0B46600552EA5 /* MMMItemScrollView.swift */,
+				83A0A24320DA8FB000749D79 /* MMMBottomPlayView.swift */,
 				832D654B20CA841600552EA5 /* Constant.swift */,
 				8334865120C997690031A90B /* MMMBaseViewController.swift */,
 			);
@@ -352,6 +355,7 @@
 				8334865420CB74120031A90B /* MMMListViewController.swift in Sources */,
 				8334866120D01EC00031A90B /* MMMFavorityViewController.swift in Sources */,
 				832D654E20CE15B600552EA5 /* MMMMusicModel.swift in Sources */,
+				83A0A24420DA8FB000749D79 /* MMMBottomPlayView.swift in Sources */,
 				83DD78E020D8F48C00800640 /* MMMSingerModel.swift in Sources */,
 				8334864820C976400031A90B /* MMMPlayViewController.swift in Sources */,
 				832D655420D0B46600552EA5 /* MMMItemScrollView.swift in Sources */,

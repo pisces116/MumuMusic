@@ -19,6 +19,14 @@ class MMMPlayViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(updateUI), name: NSNotification.Name(rawValue: kNotificationMusicPlayEnd), object: nil)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        MMMMusicPlayer.sharedInstance.hideBottomView(hide: true)
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        MMMMusicPlayer.sharedInstance.hideBottomView(hide: false)
+    }
+    
     deinit {
         NotificationCenter.default.removeObserver(self)
     }

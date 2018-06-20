@@ -22,18 +22,32 @@ class MMMMusicPlayer: NSObject,AVAudioPlayerDelegate {
     var musicModel: MMMMusicModel?
     var playType: PlayOrderType = PlayOrderType(rawValue: 0)!
     var index: Int = 0
+    var playBottomView: MMMBottomPlayView?
     
     static let sharedInstance = MMMMusicPlayer()
     private override init() {}
     
     func prepare() {
+        self.playBottomView = MMMBottomPlayView()
+        weak var weakSelf = self
+        self.playBottomView?.buttonClickClosure = { (play) in
+            if let strongSelf = weakSelf {
+                if play == true {
+                    strongSelf.play()
+                } else {
+                    strongSelf.pause()
+                }
+            }
+
+        }
+        UIApplication.shared.keyWindow?.addSubview(self.playBottomView!)
+        self.playBottomView?.snp.makeConstraints { (make) in
+            make.leading.trailing.bottom.equalToSuperview()
+            make.height.equalTo(55 + (kIsIphoneX ? 35 : 0))
+        }
         self.musicList = MMMMusicManager.prepareMusicList()
         if (self.musicList?.count)! > 0 {
             self.musicModel = self.musicList?.first
-            if musicModel?.url == musicPlayer?.url {
-                musicPlayer?.play()
-                return
-            }
             do {
                 musicPlayer = try AVAudioPlayer(contentsOf: (musicModel?.url)!)
                 musicPlayer?.delegate = self
@@ -41,8 +55,13 @@ class MMMMusicPlayer: NSObject,AVAudioPlayerDelegate {
                 print(error)
                 return
             }
+            self.playBottomView?.updatePlayView(model: self.musicModel!)
             musicPlayer?.prepareToPlay()
         }
+    }
+    
+    func hideBottomView(hide: Bool) {
+        self.playBottomView?.isHidden = hide
     }
     
     func play() {
@@ -57,6 +76,7 @@ class MMMMusicPlayer: NSObject,AVAudioPlayerDelegate {
             print(error)
             return
         }
+        self.playBottomView?.updatePlayView(model: self.musicModel!)
         musicPlayer?.prepareToPlay()
         musicPlayer?.play()
     }
@@ -67,6 +87,7 @@ class MMMMusicPlayer: NSObject,AVAudioPlayerDelegate {
         musicPlayer?.stop()
     }
     func next() {
+        self.playBottomView?.updatePlayView(model: self.musicModel!)
         if (self.musicList?.count)! > 0 {
             index += 1
             index = index % (self.musicList?.count)!
@@ -75,6 +96,7 @@ class MMMMusicPlayer: NSObject,AVAudioPlayerDelegate {
         }
     }
     func pre() {
+        self.playBottomView?.updatePlayView(model: self.musicModel!)
         if (self.musicList?.count)! > 0 {
             index -= 1
             if index < 0 {

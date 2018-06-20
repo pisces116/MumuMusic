@@ -13,9 +13,9 @@ let kNotificationMusicPlayEnd = "kNotificationMusicPlayEnd"
 
 let kScreenWidth = UIScreen.main.bounds.size.width
 let kScreenHeight = UIScreen.main.bounds.size.height
-let kIsIphoneX = (kScreenHeight == 812)
-let kBottomMargin = kIsIphoneX ? 35 : 0
-let kTopMargin = kIsIphoneX ? 44 : 20
+let kIsIphoneX = (kScreenHeight == 812.0)
+let kBottomMargin = kIsIphoneX ? 35.0 : 0
+let kTopMargin = kIsIphoneX ? 44.0 : 20
 
 extension UIColor {
     /**

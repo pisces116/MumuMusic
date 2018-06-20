@@ -24,10 +24,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } catch {
             print(error)
         }
-        MMMMusicPlayer.sharedInstance.prepare()
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = UINavigationController(rootViewController: MMMHomeViewController()) 
         window?.makeKeyAndVisible()
+        MMMMusicPlayer.sharedInstance.prepare()
         return true
     }
 
