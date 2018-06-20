@@ -116,9 +116,8 @@ class MMMPlayViewController: UIViewController {
         self.artworkImageView.image = MMMMusicPlayer.sharedInstance.musicModel?.image
         self.nameLabel.text = MMMMusicPlayer.sharedInstance.musicModel?.name
         self.playButton.isSelected = (MMMMusicPlayer.sharedInstance.musicPlayer?.isPlaying)!
-        if self.timer == nil {
-            self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateProgress), userInfo: nil, repeats: true)
-        }
+        self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateProgress), userInfo: nil, repeats: true)
+        
     }
     
     //MARK: - Action
@@ -145,7 +144,10 @@ class MMMPlayViewController: UIViewController {
     
     @objc private func progressValueChanged(sender: UISlider) {
         let time = sender.value * Float((MMMMusicPlayer.sharedInstance.musicPlayer?.duration)!)
+        MMMMusicPlayer.sharedInstance.stop()
         MMMMusicPlayer.sharedInstance.musicPlayer?.currentTime = TimeInterval(time)
+        MMMMusicPlayer.sharedInstance.prepareToPlay()
+        MMMMusicPlayer.sharedInstance.play()
         updateProgress()
     }
     

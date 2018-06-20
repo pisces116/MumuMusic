@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+//首页segment
 class MMMSegmentView: UIView {
     
     var titleClickClosure: ((Int) -> Void)?

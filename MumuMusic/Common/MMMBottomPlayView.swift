@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+//底部播放横条
 class MMMBottomPlayView: UIView {
 
     override init(frame: CGRect) {
@@ -24,6 +24,7 @@ class MMMBottomPlayView: UIView {
         self.addSubview(self.iconImageView)
         self.addSubview(self.musicLabel)
         self.addSubview(self.artistLabel)
+        self.addSubview(self.loaderView)
         self.addSubview(self.playButton)
         
         self.listButton.snp.makeConstraints { (make) in
@@ -50,6 +51,11 @@ class MMMBottomPlayView: UIView {
             make.trailing.equalToSuperview().offset(-12)
             make.top.equalTo(self.iconImageView)
         }
+        self.loaderView.snp.makeConstraints { (make) in
+            make.height.width.equalTo(40)
+            make.trailing.equalToSuperview().offset(-12)
+            make.top.equalTo(self.iconImageView)
+        }
     }
     var buttonClickClosure: ((Bool)->Void)?
     
@@ -57,6 +63,7 @@ class MMMBottomPlayView: UIView {
         if isPlaying != self.playButton.isSelected {
             self.playButton.isSelected = isPlaying
         }
+        self.loaderView.progress = percent
     }
     
     func updatePlayView(model: MMMMusicModel) {
@@ -94,6 +101,11 @@ class MMMBottomPlayView: UIView {
         button.setTitleColor(UIColor.red, for: .selected)
         button.addTarget(self, action: #selector(playButtonClick(sender:)), for: .touchUpInside)
         return button
+    }()
+    fileprivate lazy var loaderView: MMMCircularLoaderView = {
+        let loaderView = MMMCircularLoaderView()
+        loaderView.progress = 0
+        return loaderView
     }()
     @objc private func playButtonClick(sender: UIButton) {
         sender.isSelected = !sender.isSelected

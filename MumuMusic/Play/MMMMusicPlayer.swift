@@ -24,6 +24,8 @@ class MMMMusicPlayer: NSObject,AVAudioPlayerDelegate {
     var index: Int = 0
     var playBottomView: MMMBottomPlayView?
     
+    fileprivate var timer: Timer?
+    
     static let sharedInstance = MMMMusicPlayer()
     private override init() {}
     
@@ -62,9 +64,20 @@ class MMMMusicPlayer: NSObject,AVAudioPlayerDelegate {
     
     func hideBottomView(hide: Bool) {
         self.playBottomView?.isHidden = hide
+        if hide == true {
+            self.timer?.invalidate()
+            self.timer = nil
+        } else {
+            if (self.musicPlayer?.isPlaying)! {
+                self.timer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(updateBottomProcess), userInfo: nil, repeats: true)
+            }
+        }
     }
     
     func play() {
+        if self.playBottomView?.isHidden == false && self.timer == nil {
+            self.timer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(updateBottomProcess), userInfo: nil, repeats: true)
+        }
         if musicModel?.url == musicPlayer?.url {
             musicPlayer?.play()
             return
@@ -80,12 +93,20 @@ class MMMMusicPlayer: NSObject,AVAudioPlayerDelegate {
         musicPlayer?.prepareToPlay()
         musicPlayer?.play()
     }
+    func prepareToPlay() {
+        musicPlayer?.prepareToPlay()
+    }
     func pause() {
         musicPlayer?.pause()
+        self.timer?.invalidate()
+        self.timer = nil
     }
     func stop() {
         musicPlayer?.stop()
+        self.timer?.invalidate()
+        self.timer = nil
     }
+    
     func next() {
         self.playBottomView?.updatePlayView(model: self.musicModel!)
         if (self.musicList?.count)! > 0 {
@@ -105,6 +126,10 @@ class MMMMusicPlayer: NSObject,AVAudioPlayerDelegate {
             self.musicModel = self.musicList![index]
             play()
         }
+    }
+    @objc private func updateBottomProcess() {
+        let percent = Float((musicPlayer?.currentTime)!) / Float((musicPlayer?.duration)!)
+        self.playBottomView?.updateProcess(percent: CGFloat(percent), isPlaying: (musicPlayer?.isPlaying)!)
     }
 }
 

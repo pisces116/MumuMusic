@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+//顶部滚动切换按钮
 class MMMItemScrollView: UIScrollView {
 
     init(frame: CGRect, titles: [String]?) {
