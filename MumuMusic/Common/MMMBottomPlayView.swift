@@ -74,7 +74,7 @@ class MMMBottomPlayView: UIView {
     
     fileprivate lazy var listButton: UIButton = {
         var button = UIButton(type: .custom)
-        button.setImage(UIImage(named: "dota2.jpg"), for: .normal)
+        button.setImage(UIImage(named: "player_btn_list.png"), for: .normal)
         return button
     }()
     fileprivate lazy var iconImageView: UIImageView = {
@@ -95,8 +95,8 @@ class MMMBottomPlayView: UIView {
     }()
     fileprivate lazy var playButton: UIButton = {
         var button = UIButton(type: .custom)
-        button.setTitle("Play", for: .normal)
-        button.setTitle("Pause", for: .selected)
+        button.setImage(UIImage(named: "player_btn_play.png"), for: .normal)
+        button.setImage(UIImage(named: "player_btn_stop.png"), for: .selected)
         button.setTitleColor(UIColor.black, for: .normal)
         button.setTitleColor(UIColor.red, for: .selected)
         button.addTarget(self, action: #selector(playButtonClick(sender:)), for: .touchUpInside)
