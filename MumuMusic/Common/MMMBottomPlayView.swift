@@ -103,7 +103,7 @@ class MMMBottomPlayView: UIView {
         return button
     }()
     fileprivate lazy var loaderView: MMMCircularLoaderView = {
-        let loaderView = MMMCircularLoaderView()
+        let loaderView = MMMCircularLoaderView(frame: CGRect.zero, circleRect: CGRect(x: 0, y: 0, width: 40, height: 40))
         loaderView.progress = 0
         return loaderView
     }()

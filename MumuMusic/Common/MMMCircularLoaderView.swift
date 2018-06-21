@@ -9,40 +9,40 @@
 import UIKit
 //圆形播放进度条
 class MMMCircularLoaderView: UIView {
+    let circleBackPathLayer = CAShapeLayer()
     let circlePathLayer = CAShapeLayer()
     let circleRadius: CGFloat = 20.0
+    let circleRect: CGRect!
     
-    override init(frame: CGRect) {
+    init(frame: CGRect, circleRect: CGRect) {
+        self.circleRect = circleRect
         super.init(frame: frame)
         configure()
     }
     
     required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        configure()
+        fatalError("init(coder:) has not been implemented")
     }
     
     func configure() {
-        circlePathLayer.frame = bounds
+        circleBackPathLayer.frame = self.circleRect
+        circleBackPathLayer.lineWidth = 2
+        circleBackPathLayer.fillColor = UIColor.clear.cgColor
+        circleBackPathLayer.strokeColor = UIColor.rgbColorFromHex(rgb: 0xdcdcdc).cgColor
+        circleBackPathLayer.strokeStart = 0;
+        circleBackPathLayer.strokeEnd = 1;
+        circleBackPathLayer.path = circlePath().cgPath
+        layer.addSublayer(circleBackPathLayer)
+        circlePathLayer.frame = self.circleRect
         circlePathLayer.lineWidth = 2
-        circlePathLayer.fillColor = UIColor.rgbColorFromHex(rgb: 0xdcdcdc).cgColor
+        circlePathLayer.fillColor = UIColor.clear.cgColor
         circlePathLayer.strokeColor = UIColor.rgbColorFromHex(rgb: 0xe4005b).cgColor
+        circlePathLayer.strokeStart = 0;
         layer.addSublayer(circlePathLayer)
-//        backgroundColor = UIColor.white
-    }
-    func circleFrame() -> CGRect {
-        var circleFrame = CGRect(x: 0, y: 0, width: 2 * circleRadius, height: 2 * circleRadius)
-        circleFrame.origin.x = circlePathLayer.bounds.maxX - circleFrame.midX
-        circleFrame.origin.y = circlePathLayer.bounds.maxY - circleFrame.midY
-        return circleFrame
+        self.circleBackPathLayer.path = circlePath().cgPath
     }
     func circlePath() -> UIBezierPath {
-        return UIBezierPath(ovalIn: CGRect(x: 0, y: 0, width: 40, height: 40))
-    }
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        circlePathLayer.frame = bounds
-        circlePathLayer.path = circlePath().cgPath
+        return UIBezierPath(arcCenter: CGPoint(x: self.circleRect.midX, y: self.circleRect.midY), radius: self.circleRect.midX, startAngle: CGFloat(-Double.pi/2), endAngle: CGFloat(Double.pi + Double.pi/2), clockwise: true)
     }
     var progress: CGFloat {
         get {
@@ -55,6 +55,7 @@ class MMMCircularLoaderView: UIView {
                 circlePathLayer.strokeEnd = 0
             } else {
                 circlePathLayer.strokeEnd = newValue
+                circlePathLayer.path = circlePath().cgPath
             }
         }
     }

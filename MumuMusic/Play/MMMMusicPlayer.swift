@@ -24,13 +24,14 @@ class MMMMusicPlayer: NSObject,AVAudioPlayerDelegate {
     var index: Int = 0
     var playBottomView: MMMBottomPlayView?
     
-    fileprivate var timer: Timer?
+    fileprivate var displayLink: CADisplayLink?
     
     static let sharedInstance = MMMMusicPlayer()
     private override init() {}
     
     func prepare() {
         self.playBottomView = MMMBottomPlayView()
+        self.displayLink = CADisplayLink(target: self, selector: #selector(updateBottomProcess))
         weak var weakSelf = self
         self.playBottomView?.buttonClickClosure = { (play) in
             if let strongSelf = weakSelf {
@@ -60,23 +61,26 @@ class MMMMusicPlayer: NSObject,AVAudioPlayerDelegate {
             self.playBottomView?.updatePlayView(model: self.musicModel!)
             musicPlayer?.prepareToPlay()
         }
+        DispatchQueue.global().async {
+            self.displayLink?.add(to: RunLoop.current, forMode: .defaultRunLoopMode)
+            RunLoop.current.run()
+        }
     }
     
     func hideBottomView(hide: Bool) {
         self.playBottomView?.isHidden = hide
         if hide == true {
-            self.timer?.invalidate()
-            self.timer = nil
+            self.displayLink?.isPaused = true
         } else {
             if (self.musicPlayer?.isPlaying)! {
-                self.timer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(updateBottomProcess), userInfo: nil, repeats: true)
+                self.displayLink?.isPaused = false
             }
         }
     }
     
     func play() {
-        if self.playBottomView?.isHidden == false && self.timer == nil {
-            self.timer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(updateBottomProcess), userInfo: nil, repeats: true)
+        if self.playBottomView?.isHidden == false {
+           self.displayLink?.isPaused = false
         }
         if musicModel?.url == musicPlayer?.url {
             musicPlayer?.play()
@@ -98,13 +102,11 @@ class MMMMusicPlayer: NSObject,AVAudioPlayerDelegate {
     }
     func pause() {
         musicPlayer?.pause()
-        self.timer?.invalidate()
-        self.timer = nil
+        self.displayLink?.isPaused = true
     }
     func stop() {
         musicPlayer?.stop()
-        self.timer?.invalidate()
-        self.timer = nil
+        self.displayLink?.isPaused = true
     }
     
     func next() {
@@ -129,7 +131,9 @@ class MMMMusicPlayer: NSObject,AVAudioPlayerDelegate {
     }
     @objc private func updateBottomProcess() {
         let percent = Float((musicPlayer?.currentTime)!) / Float((musicPlayer?.duration)!)
-        self.playBottomView?.updateProcess(percent: CGFloat(percent), isPlaying: (musicPlayer?.isPlaying)!)
+        DispatchQueue.main.async {
+            self.playBottomView?.updateProcess(percent: CGFloat(percent), isPlaying: (self.musicPlayer?.isPlaying)!)
+        }
     }
 }
 
