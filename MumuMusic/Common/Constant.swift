@@ -94,4 +94,21 @@ extension UIImage {
         UIGraphicsEndImageContext()
         return image!
     }
+    //MARK: - 圆角图片
+    func imageWithRoundCorner() -> UIImage {
+        let rect = CGRect(origin: CGPoint(x: 0, y: 0), size: self.size)
+        UIGraphicsBeginImageContextWithOptions(self.size, false, UIScreen.main.scale)
+        let context = UIGraphicsGetCurrentContext()
+        context?.ctm.scaledBy(x: 1, y: -1)
+        context?.ctm.translatedBy(x: 0, y: -rect.size.height)
+        let path = UIBezierPath(roundedRect: rect, byRoundingCorners: .allCorners, cornerRadii: self.size)
+        path.close()
+        context?.saveGState()
+        path.addClip()
+        context?.draw(self.cgImage!, in: rect)
+        context?.resetClip()
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return image!
+    }
 }

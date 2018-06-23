@@ -12,6 +12,16 @@ class MMMSingerListCell: UITableViewCell {
     fileprivate lazy var iconImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
+        
+//        var iconBorder = CAShapeLayer()
+//        iconBorder.frame = CGRect(x: 0, y: 0, width: 60, height: 60)
+//        iconBorder.cornerRadius = 30
+//        iconBorder.lineWidth = 1 / UIScreen.main.scale
+//        iconBorder.borderColor = UIColor(white: 0.00, alpha: 0.90).cgColor
+//        iconBorder.shouldRasterize = true
+//        iconBorder.rasterizationScale = UIScreen.main.scale
+//        
+//        imageView.layer.addSublayer(iconBorder)
         return imageView
     }()
     fileprivate var homeTitleLabel: UILabel = {
@@ -46,7 +56,14 @@ class MMMSingerListCell: UITableViewCell {
     func updateCell(model: MMMSingerModel) {
         self.homeTitleLabel.text = model.singerName
         self.homeContentLabel.text = "\(String(describing: (model.singerMusic?.count)!))首"
-        self.iconImageView.image = model.singerImage
+        DispatchQueue.global().async {
+            let image = model.singerImage?.imageWithRoundCorner()
+            DispatchQueue.main.async {
+                self.iconImageView.image = image
+            }
+            
+        }
+        self.iconImageView.image = model.singerImage?.imageWithRoundCorner()
     }
     
     private func createSubViews() {
