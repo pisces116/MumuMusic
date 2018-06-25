@@ -13,19 +13,24 @@ class MMMFavorityViewController: MMMBaseViewController,UITableViewDataSource,UIT
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "喜欢&收藏"
-        loadFavoriteDataSource()
+        self.dataSocrceDic = [String: [Any]]()
         createSubViews()
+        loadFavoriteDataSource()
     }
     
     //MARK: - Private Func
     private func loadFavoriteDataSource() {
-        self.dataManager = MMMFavoriteDataManager()
-        self.dataSocrceDic = [String: [Any]]()
-        self.dataSocrceDic["单曲"] = self.dataManager?.favoriteMusicList()
-        self.dataSocrceDic["艺人"] = self.dataManager?.favoriteSingerList()
-        self.dataSocrceDic["专辑"] = self.dataManager?.favoriteAlbumList()
-        self.dataSocrceDic["MV"] = self.dataManager?.favoriteMusicList()
-        self.dataSocrceDic["流派"] = self.dataManager?.favoriteMusicList()
+        DispatchQueue.global().async {
+            self.dataManager = MMMFavoriteDataManager()
+            self.dataSocrceDic["单曲"] = self.dataManager?.favoriteMusicList()
+            self.dataSocrceDic["艺人"] = self.dataManager?.favoriteSingerList()
+            self.dataSocrceDic["专辑"] = self.dataManager?.favoriteAlbumList()
+            self.dataSocrceDic["MV"] = self.dataManager?.favoriteMusicList()
+            self.dataSocrceDic["流派"] = self.dataManager?.favoriteMusicList()
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
     }
     
     private func createSubViews() {

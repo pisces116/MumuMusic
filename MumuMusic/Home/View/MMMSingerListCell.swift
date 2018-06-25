@@ -56,14 +56,7 @@ class MMMSingerListCell: UITableViewCell {
     func updateCell(model: MMMSingerModel) {
         self.homeTitleLabel.text = model.singerName
         self.homeContentLabel.text = "\(String(describing: (model.singerMusic?.count)!))首"
-        DispatchQueue.global().async {
-            let image = model.singerImage?.imageWithRoundCorner()
-            DispatchQueue.main.async {
-                self.iconImageView.image = image
-            }
-            
-        }
-        self.iconImageView.image = model.singerImage?.imageWithRoundCorner()
+        self.iconImageView.image = model.singerImage
     }
     
     private func createSubViews() {

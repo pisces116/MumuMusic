@@ -32,7 +32,7 @@ class MMMFavoriteDataManager: NSObject {
             let singerModel = MMMSingerModel()
             singerModel.singerName = key
             singerModel.singerMusic = value
-            singerModel.singerImage = value.first?.image
+            singerModel.singerImage = value.first?.roundImage
             singerList.append(singerModel)
         }
         return singerList

@@ -16,6 +16,7 @@ class MMMMusicModel: NSObject {
     var artist: String?
     var album: String?
     var genre: String?
+    var roundImage: UIImage?
     var isActive: Bool = false
     
     init(name: String) {
@@ -34,6 +35,7 @@ class MMMMusicModel: NSObject {
                 //封面图片
                 if musicMetaData.commonKey?.rawValue == "artwork" {
                     self.image = UIImage.init(data: (musicMetaData.value as? Data)!)
+                    self.roundImage = self.image?.imageWithRoundCorner()
                 }
                 //专辑名
                 if musicMetaData.commonKey?.rawValue == "albumName" {
