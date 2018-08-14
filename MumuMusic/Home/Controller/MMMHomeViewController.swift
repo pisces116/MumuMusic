@@ -9,10 +9,7 @@
 import UIKit
 
 class MMMHomeViewController: MMMBaseViewController {
-    //顶部导航
-    fileprivate var segmentView: MMMSegmentView!
-    fileprivate var searchButton: UIButton!
-    fileprivate var listButton: UIButton!
+    
     //分类型跳转
     fileprivate var favorityView: MMMHomeTypeView!
     fileprivate var localView: MMMHomeTypeView!
@@ -25,50 +22,9 @@ class MMMHomeViewController: MMMBaseViewController {
     }
     
     private func setupUI() {
-        createTopNaviView()
         createTypeViews()
     }
     
-    private func createTopNaviView() {
-        self.listButton = UIButton(type: .custom)
-        self.view.addSubview(self.listButton)
-        self.listButton.setTitle("List", for: .normal)
-        self.listButton.setTitleColor(UIColor.black, for: .normal)
-        self.listButton.titleLabel?.font = UIFont.systemFont(ofSize: 16)
-        self.listButton.addTarget(self, action: #selector(listButtonClick(sender:)), for: .touchUpInside)
-        
-        self.searchButton = UIButton(type: .custom)
-        self.view.addSubview(self.searchButton!)
-        self.searchButton.setTitle("Search", for: .normal)
-        self.searchButton.setTitleColor(UIColor.black, for: .normal)
-        self.searchButton.titleLabel?.font = UIFont.systemFont(ofSize: 16)
-        
-        self.segmentView = MMMSegmentView(frame: CGRect.zero, titles: ["HOME","ME"])
-        self.segmentView.setSelectTitle(index: 0)
-        self.segmentView.titleClickClosure = { (index) in
-            
-        }
-        self.view.addSubview(self.segmentView)
-        
-        self.listButton.snp.makeConstraints { (make) in
-            make.leading.equalToSuperview()
-            make.top.equalToSuperview().offset(kTopMargin)
-            make.height.width.equalTo(48)
-        }
-        
-        self.searchButton.snp.makeConstraints { (make) in
-            make.trailing.equalToSuperview()
-            make.top.equalToSuperview().offset(kTopMargin)
-            make.height.width.equalTo(48)
-        }
-        
-        self.segmentView.snp.makeConstraints { (make) in
-            make.top.equalToSuperview().offset(kTopMargin)
-            make.height.equalTo(48)
-            make.centerX.equalToSuperview()
-            make.width.equalTo(kScreenWidth * 0.5)
-        }
-    }
     private func createTypeViews() {
         self.favorityView = MMMHomeTypeView(frame: CGRect.zero, title: "喜欢&收藏", subTitle: "0")
         self.localView = MMMHomeTypeView(frame: CGRect.zero, title: "本地音乐", subTitle: "0")
@@ -79,8 +35,7 @@ class MMMHomeViewController: MMMBaseViewController {
         self.view.addSubview(self.historyView)
         
         self.favorityView.snp.makeConstraints { (make) in
-            make.leading.equalToSuperview().offset(20)
-            make.top.equalTo(self.segmentView.snp.bottom).offset(20)
+            make.leading.top.equalToSuperview().offset(20)
             make.height.equalTo(80)
         }
         self.localView.snp.makeConstraints { (make) in
@@ -113,9 +68,7 @@ class MMMHomeViewController: MMMBaseViewController {
         }
     }
     
-    @objc func listButtonClick(sender: UIButton) {
-        self.navigationController?.pushViewController(MMMListViewController(type: MusicListType(rawValue: 2)!), animated: true)
-    }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

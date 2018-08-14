@@ -21,7 +21,7 @@ extension UIColor {
     /**
      *  16进制 转 RGBA
      */
-    class func rgbaColorFromHex(rgb:Int, alpha:CGFloat) ->UIColor {
+    class func rgbaColorFromHex(rgb:Int, alpha:CGFloat) -> UIColor {
         
         return UIColor(red: ((CGFloat)((rgb & 0xFF0000) >> 16)) / 255.0,
                        green: ((CGFloat)((rgb & 0xFF00) >> 8)) / 255.0,

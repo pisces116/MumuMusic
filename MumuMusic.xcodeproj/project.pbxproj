@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		830ECEF920C5A129001B2036 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 830ECEF820C5A129001B2036 /* AppDelegate.swift */; };
 		830ECF0020C5A129001B2036 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 830ECEFF20C5A129001B2036 /* Assets.xcassets */; };
+		832BEBD5212303D10095C295 /* MMMRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832BEBD4212303D10095C295 /* MMMRootViewController.swift */; };
 		832D654220C7B90700552EA5 /* MMMLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832D654120C7B90700552EA5 /* MMMLoginViewController.swift */; };
 		832D654C20CA841600552EA5 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832D654B20CA841600552EA5 /* Constant.swift */; };
 		832D654E20CE15B600552EA5 /* MMMMusicModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832D654D20CE15B600552EA5 /* MMMMusicModel.swift */; };
@@ -59,6 +60,7 @@
 		830ECEF820C5A129001B2036 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		830ECEFF20C5A129001B2036 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		830ECF0420C5A129001B2036 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		832BEBD4212303D10095C295 /* MMMRootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMMRootViewController.swift; sourceTree = "<group>"; };
 		832D654120C7B90700552EA5 /* MMMLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMMLoginViewController.swift; sourceTree = "<group>"; };
 		832D654B20CA841600552EA5 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		832D654D20CE15B600552EA5 /* MMMMusicModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMMMusicModel.swift; sourceTree = "<group>"; };
@@ -222,6 +224,7 @@
 			isa = PBXGroup;
 			children = (
 				8334864D20C976DA0031A90B /* MMMHomeViewController.swift */,
+				832BEBD4212303D10095C295 /* MMMRootViewController.swift */,
 				8334865320CB74120031A90B /* MMMListViewController.swift */,
 				8334866020D01EC00031A90B /* MMMFavorityViewController.swift */,
 			);
@@ -407,6 +410,7 @@
 				8334866120D01EC00031A90B /* MMMFavorityViewController.swift in Sources */,
 				832D654E20CE15B600552EA5 /* MMMMusicModel.swift in Sources */,
 				83A0A24420DA8FB000749D79 /* MMMBottomPlayView.swift in Sources */,
+				832BEBD5212303D10095C295 /* MMMRootViewController.swift in Sources */,
 				83DD78E020D8F48C00800640 /* MMMSingerModel.swift in Sources */,
 				8334864820C976400031A90B /* MMMPlayViewController.swift in Sources */,
 				832D655420D0B46600552EA5 /* MMMItemScrollView.swift in Sources */,

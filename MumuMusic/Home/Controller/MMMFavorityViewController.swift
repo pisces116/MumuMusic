@@ -17,6 +17,10 @@ class MMMFavorityViewController: MMMBaseViewController,UITableViewDataSource,UIT
         createSubViews()
         loadFavoriteDataSource()
     }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+    }
     
     //MARK: - Private Func
     private func loadFavoriteDataSource() {
