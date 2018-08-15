@@ -14,30 +14,25 @@ class MMMRootViewController: MMMBaseViewController {
     fileprivate var segmentView: MMMSegmentView!
     fileprivate var searchButton: UIButton!
     fileprivate var listButton: UIButton!
-    fileprivate var containerView: UIView!
     fileprivate var homeVC: MMMHomeViewController!
     fileprivate var mineVC: MMMMineViewController!
+    fileprivate var currentIndex: NSInteger?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.showNavi = false
         homeVC = MMMHomeViewController()
         mineVC = MMMMineViewController()
-        self.navigationController?.addChildViewController(homeVC)
-//        self.navigationController?.addChildViewController(mineVC)
+        self.addChildViewController(homeVC)
+        self.addChildViewController(mineVC)
+        self.currentIndex = 0
         setupUI()
     }
     
     private func setupUI() {
         createTopNaviView()
-        self.containerView = UIView()
-        self.view.addSubview(self.containerView)
-        self.containerView.snp.makeConstraints { (make) in
-            make.top.equalTo(self.segmentView)
-            make.leading.trailing.bottom.equalToSuperview()
-        }
-        homeVC.view.frame = CGRect(x: 0, y: 0, width: kScreenWidth, height: self.containerView.frame.height)
-        self.containerView.addSubview(homeVC.view)
+        self.view.addSubview(homeVC.view)
+        homeVC.view.frame = CGRect(x: 0, y: kIsIphoneX ? 92 : 68, width: kScreenWidth, height: kScreenHeight - (kIsIphoneX ? 92 : 68))
     }
     
     private func createTopNaviView() {
@@ -56,8 +51,25 @@ class MMMRootViewController: MMMBaseViewController {
         
         self.segmentView = MMMSegmentView(frame: CGRect.zero, titles: ["HOME","ME"])
         self.segmentView.setSelectTitle(index: 0)
+        weak var weakSelf = self
         self.segmentView.titleClickClosure = { (index) in
-            
+            if let strongSelf = weakSelf {
+                if strongSelf.currentIndex != index {
+                    if index == 0 {
+                        strongSelf.transition(from: strongSelf.mineVC, to: strongSelf.homeVC, duration: 0.2, options: UIViewAnimationOptions.curveEaseInOut, animations: {
+                        }, completion: { (isFinished) in
+                            strongSelf.homeVC.view.frame = CGRect(x: 0, y: kIsIphoneX ? 92 : 68, width: kScreenWidth, height: kScreenHeight - (kIsIphoneX ? 92 : 68))
+                            strongSelf.currentIndex = index
+                        })
+                    } else {
+                        strongSelf.transition(from: strongSelf.homeVC, to: strongSelf.mineVC, duration: 0.2, options: UIViewAnimationOptions.curveEaseInOut, animations: {
+                        }, completion: { (isFinished) in
+                            strongSelf.mineVC.view.frame = CGRect(x: 0, y: kIsIphoneX ? 92 : 68, width: kScreenWidth, height: kScreenHeight - (kIsIphoneX ? 92 : 68))
+                            strongSelf.currentIndex = index
+                        })
+                    }
+                }
+            }
         }
         self.view.addSubview(self.segmentView)
         

@@ -8,11 +8,12 @@
 
 import UIKit
 
-class MMMMineViewController: UIViewController {
+class MMMMineViewController: MMMBaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.showNavi = false
+        self.view.backgroundColor = UIColor.cyan
         // Do any additional setup after loading the view.
     }
 
